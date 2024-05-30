@@ -1,0 +1,47 @@
+# April 2023 (using combined eRASSs files (sm0X))
+# Scripts to combine multiple tiles, flare filter and clean sky tile event files, PIB subtract, and exposure correct of eRASS data
+# $ Script.sh -h for printing help
+!!! FIRST: create a working folder consisting combined eRASS (sm0X) and all TMs event file (020) from each tile to be combined (sm0X_tile_020_EventList.fits). The following scripts should work to individual eRASS (em0X) file as well, however flaregti works better with combined eRASS files.
+!!! copy the four scripts to this folder
+--------------------------------------------------------------------------------
+-SH_filtering.sh
+Script to clean and filter event files. There are 2 possibilities of filtering, i.e., using flaregti or Florian's filtering script (3sigma clipping of the hardband light curve). The chosen filtering method can be called by specifying 0 or 1, respectively.
+FLAREGTI (0):
+  1) The script re-centers each tile to the coordinates specified in the header (RA_CENT & DEC_CENT), builds lightcurve (5-10 keV) using flaregti, calls PY_lightcurve_check_temp.py to calculate the 3sigma threshold, runs flaregti again with the threshold. Then re-centers to image center given in the command and combines all tiles. Lastly, separate TM0 to individual TMs.
+Parameters needed to run the script: survey name (e.g., sm04/sm05/em01, etc), cluster name (e.g., A548), processing version (e.g., c020/c010/c946, etc), RA and Dec (in degree), size of the image in pixels (e.g., 10000 pixels). Example:
+	$ ./SH_filtering.sh sm04 A548 c946 ra dec 10000 0
+     
+FLORIAN'S FILTERING (1):
+  1) The script re-centers each tile to the image coordinate specified in the command, combines all tiles, separate the into individual TMs, build light curve in the hard band (5-9 keV), build GTIs based on 3sigma clipping.
+Parameters needed to run the script: same as above. Example:
+	$ ./SH_filtering.sh sm04 A548 c946 ra dec 10000 1
+   
+	The filtered files (with flaregti and evtool flag & pattern) and all other filtering products will be in filtered/ folder
+  2) Please check the log file for any 'FAILED' processes (the easiest will be to open the log file and find 'FAILED'). Also, there are some reports that telid task failed to separate files properly, i.e., the separated files still have extensions that do not correspond to the TM specified. To check if telid is successful, each tile should have 10 BINTABLEs that correspond to the specified TM (not more!). For instance, tile1 TM1 should have:
+1 BINTABLE EVENTS1
+2 BINTABLE CORRAT1
+.
+.
+.
+10 BINTABLE FLAREGTI1
+--------------------------------------------------------------------------------
+-The SH_prep.sh
+   1) This script now runs per TM in a (combined) survey. It should reduce the processing time significantly, and you can run it parallel with other TMs. You need to specify low (low9) and high energy band values for the image. You can also specify an array of two elements of low and high energy, e.g., to avoid Al line at ~1.4 keV
+   2) How to run in terminal. For example you have 9 tiles of cluster A548 that had been combined using previous script with flaregti filtering method. Now you want products of TM1. Your data is processed with c946 processing and you want your products to have size of 10000 pixels and processed in 0.2(0.8)-2.3 keV band:
+	$ ./SH_prep.sh sm04 1 A548 c946 10000 0.2 2.3 0 0.2
+or you want to remove Al line, e.g., removing between 1.35-1.6 keV
+	$ ./SH_prep.sh sm04 1 A548 c946 10000 "0.2 1.6" "1.35 2.3" 0 0.2
+	$ ./SH_prep.sh sm04 5 A548 c946 10000 "0.8 1.6" "1.35 2.3" 0 0.2
+	This will result in images with union of these bands 0.2-1.35 + 1.5-2.3 keV. 0 is to indicate the input was filtered using flaregti and the last 0.2 is to indicate the absolute lowest energy band of all TMs is 0.2 keV (essentially to point out the script when running TM5 and TM7 that have higher cut, typically 0.8 keV). When running in array mode, the band in the file name will still be the full band, but with suffix "_uni".
+       Log file is created automatically!
+   3) Run for all TMs
+   4) Please check the log file for any 'FAILED' processes. Also check if the images are indeed the results of all the tiles you specify!
+--------------------------------------------------------------------------------
+-The SH_PIBSUB.sh
+When you have all the needed files from all TMs, then you can run this script. This script will do Particle Induced Background Subtraction for each TM and then exposure correction, combining all TMs and taking into account the discrepancy of the different energy bands between TM8 and TM9.
+>>> The default hard-band for estimating the PIB is now 6.7-9.0 keV.
+   1) To run it (following above example) ):
+	$ ./SH_PIBSUB_Aug1822.sh sm04 A548 c946 0.2 0.8 2.3
+	or in array mode:
+	$ ./SH_PIBSUB_Aug1822.sh sm04 A548 c946 "0.2 1.6" "0.8 1.6" "1.35 2.3"
+To check any errors, the important values, and the names of the products see LOG_XXX_expocorr.log file.

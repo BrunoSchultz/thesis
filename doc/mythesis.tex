@@ -1,0 +1,195 @@
+\documentclass[Bachelor, USenglish]{scrbook}
+%------------------------------------------------------------------------------
+% This file contains a skeleton thesis for
+% a Physics or Astronomy Institute in the University of Bonn.
+
+% Specify the thesis type as an option: PhD, Master, Diplom, Bachelor.
+% Specify the thesis stage as an option: Draft (default), Submit, Final, PILibrary.
+
+% Specify the language(s) in the class and then use babel.
+% If you need more than one language, give the default language last,
+% e.g. ngerman, UKenglish for a thesis in British (UK) English where you want
+% to be able to set the language to German for some part of it.
+
+%------------------------------------------------------------------------------
+% Pass TeX Live version to the package.
+
+% twoside=true is suitable for printing, while twoside=false is probably better for PDF version.
+% Pass option refsection=none if you want the bibliography at the end of the thesis.
+\usepackage[twoside=false, astrobib, refsection=none]{ubonn-thesis}
+
+%------------------------------------------------------------------------------
+% Adjustments to standard biblatex style.
+% Change option to backref=false when your thesis is ready to turn off back-referencing.
+% Pass the option showurl=false to shorten your bibliography by not including url fields.
+% Astronomy theses usually set block=none. block=ragged is the default.
+\usepackage[backref=true, block=none]{ubonn-biblatex}
+
+%------------------------------------------------------------------------------
+% Glossary package
+% \usepackage[acronym,toc,nosuper]{glossaries}
+% TikZ packages and libraries
+% \usepackage{tikz}
+% \usepackage{tikz-3dplot}
+% \usepackage{pgfplots}
+% \usetikzlibrary{positioning,shapes,arrows}
+% \usetikzlibrary{decorations.pathmorphing}
+% \usetikzlibrary{decorations.markings}
+\usepackage{thesis_defs}
+
+%------------------------------------------------------------------------------
+% Instead of colouring  links, cites, table of contents etc.
+% put them in a coloured box for the screen version.
+% This is probably a good idea when you print your thesis.
+% \hypersetup{colorlinks=false,
+%   linkbordercolor=blue,citebordercolor=magenta,urlbordercolor=darkgreen
+% }
+
+%------------------------------------------------------------------------------
+% When writing your thesis it is often helpful to have the date and
+% time in the output file. Comment this out for the final version.
+\ifoot[\today{} \thistime]{\today{} \thistime}
+
+% In order to check if your labels are referenced try the refcheck package
+% \usepackage{refcheck}
+
+%------------------------------------------------------------------------------
+
+% Specify the bibliography files 
+\addbibresource{bib/thesis_refs.bib}
+
+%------------------------------------------------------------------------------
+% The following definitions are used to produce the title pages
+% needed at various stages
+\newcommand{\thesistitle}{INSERT CREATIVE NAME HERE}
+\newcommand*{\thesisauthor}{Author's name}
+\newcommand*{\thesistown}{Place of birth}
+\renewcommand*{\InstituteName}{\AIFA}
+\renewcommand*{\inInstitute}{\inAIFA}
+\renewcommand*{\InstituteAddress}{\PIaddress}
+% Adjust \thesisreferee...text depending on male/female referee
+\newcommand*{\thesisrefereeonetext}{1.\ Gutachter}
+\newcommand*{\thesisrefereeone}{Prof.\ Dr.\ John Smith}
+\newcommand*{\thesisrefereetwotext}{2.\ Gutachterin}
+\newcommand*{\thesisrefereetwo}{Prof.\ Dr.\ Anne Jones}
+% Date when thesis was submitted (Master/Diplom)
+% Year or Month, Year when thesis was submitted (PhD)
+\newcommand*{\thesissubmit}{XX.YY.2024}
+% \newcommand*{\thesissubmit}{Month 2024}
+% Date of thesis examination (PhD)
+\newcommand*{\thesispromotion}{XX.YY.2024}
+% Month and year of the final printed version of the thesis
+\newcommand*{\thesismonth}{MMM}
+\newcommand*{\thesisyear}{2024}
+\newcommand*{\thesisnumber}{BONN-IR-2024-XXX}
+% Dedication
+% \newcommand*{\thesisdedication}{}
+
+%------------------------------------------------------------------------------
+% The abstract is only needed for the printed version and should be in
+% English regardless of the language of the thesis
+\newcommand{\thesisabstract}{%
+  \begin{otherlanguage}{UKenglish}
+    This is your thesis abstract. It may be in a language that is
+    different from the rest of your thesis.
+  \end{otherlanguage}
+}
+
+%------------------------------------------------------------------------------
+% \includeonly can be used to select which chapters you want to process
+% A simple \include command just inserts a \clearpage before and after the file
+% Note that \includeonly can be quite picky! Do not forget to put a
+% comma after the filename, otherwise it will simply be ignored!
+\includeonly{%
+  thesis_intro,
+  thesis_theoretical_background,
+  thesis_data_reduction,
+  thesis_appendix,
+  thesis_acknowledge
+}
+
+%------------------------------------------------------------------------------
+% Give a list of directories where figures can be found. Do not leave
+% any spaces in the list and end the directory name with a /
+\graphicspath{%
+  {figs/}%
+  {figs/cover/}%
+}
+
+%------------------------------------------------------------------------------
+
+% Draft version - add the word DRAFT on the cover pages
+% Also add the date and time of compilation and turn on line numbers (if option is set).
+\ifthenelse{\equal{\ThesisVersion}{Draft}}{%
+  \usepackage{background}
+  \backgroundsetup{contents=DRAFT, color=blue!30}
+  \ifoot[\today{} \thistime]{\today{} \thistime}
+  \ifthenelse{\boolean{ThesisLineno}}{\linenumbers}{}
+ }
+
+%------------------------------------------------------------------------------
+\begin{document}
+
+% Make cover and title pages
+\makethesistitle
+
+\pagestyle{scrplain}
+
+%------------------------------------------------------------------------------
+% You can add your acknowledgements here - don't forget to also add
+% them to \includeonly above
+\include{thesis_acknowledge}
+
+\tableofcontents
+
+\mainmatter
+\pagestyle{scrheadings}
+
+% Turn off DRAFT for the following pages
+\ifthenelse{\equal{\ThesisVersion}{Draft}}{%
+  \backgroundsetup{contents={}}
+}{}
+
+%------------------------------------------------------------------------------
+
+\include{thesis_intro}
+
+%------------------------------------------------------------------------------
+
+\include{thesis_theoretical_background}
+
+%------------------------------------------------------------------------------
+
+\include{thesis_data_reduction}
+
+%------------------------------------------------------------------------------
+\appendix
+% \part*{Appendix}
+% Add your appendices here - don't forget to also add them to \includeonly above
+\include{thesis_appendix}
+%------------------------------------------------------------------------------
+% Use biblatex for the bibliography.
+% Add bibliography to Table of Contents.
+% Use this command  (and remove refsection environments)
+% to print all references at the end of the thesis.
+\printbibliography[heading=bibintoc]
+
+
+%------------------------------------------------------------------------------
+% Declare lists of figures and tables and acknowledgements as backmatter
+% Chapter/section numbers are turned off
+\backmatter
+
+\listoffigures
+\listoftables
+
+%------------------------------------------------------------------------------
+% Print the glossary and list of acronyms
+% \printglossaries
+
+%------------------------------------------------------------------------------
+% You could instead add your acknowledgements here - don't forget to
+% also add them to \includeonly above
+% \include{thesis_acknowledge}
+
+\end{document}

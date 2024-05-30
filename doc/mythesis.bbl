@@ -1,0 +1,379 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{Bykov_2015}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=6336731caa3ebfb13f96f61578a82c85}{%
+           family={Bykov},
+           familyi={B\bibinitperiod},
+           given={A.\bibnamedelimi M.},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=835c49081ed3695e71e6dc2d5d0b3afe}{%
+           family={Churazov},
+           familyi={C\bibinitperiod},
+           given={E.\bibnamedelimi M.},
+           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=387a0bc5b7f819b137b593536ad43b35}{%
+           family={Ferrari},
+           familyi={F\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a47580f625ea734a38c0746f1360596c}{%
+           family={Forman},
+           familyi={F\bibinitperiod},
+           given={W.\bibnamedelimi R.},
+           giveni={W\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=485090479546bde3951cbb5000083b4f}{%
+           family={Kaastra},
+           familyi={K\bibinitperiod},
+           given={J.\bibnamedelimi S.},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ccfdddb26bf85a5d5effe467cdafb48}{%
+           family={Klein},
+           familyi={K\bibinitperiod},
+           given={U.},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f4788b9ebf7233fde3dcfa95e34113f8}{%
+           family={Markevitch},
+           familyi={M\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d15ba3fdbc2a8c114617b8b8ca34cf9c}{%
+           family={Plaa},
+           familyi={P\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0,
+           prefix={de},
+           prefixi={d\bibinitperiod},
+           prefixun=0}}%
+      }
+      \strng{namehash}{c56344149bdec8dc9bcc35062e09923c}
+      \strng{fullhash}{35f57920a0bd817f49ab849af9648a89}
+      \strng{bibnamehash}{c56344149bdec8dc9bcc35062e09923c}
+      \strng{authorbibnamehash}{c56344149bdec8dc9bcc35062e09923c}
+      \strng{authornamehash}{c56344149bdec8dc9bcc35062e09923c}
+      \strng{authorfullhash}{35f57920a0bd817f49ab849af9648a89}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1572-9672}
+      \field{journaltitle}{Space Science Reviews}
+      \field{month}{5}
+      \field{number}{1}
+      \field{title}{Structures and Components in Galaxy Clusters: Observations and Models}
+      \field{volume}{188}
+      \field{year}{2015}
+      \field{pages}{141\bibrangedash 185}
+      \range{pages}{45}
+      \verb{doi}
+      \verb 10.1007/s11214-014-0129-4
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s11214-014-0129-4
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s11214-014-0129-4
+      \endverb
+    \endentry
+    \entry{Cavaliere_1971}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=7bcf3dfca0fb55c6116be25153e38eaf}{%
+           family={Cavaliere},
+           familyi={C\bibinitperiod},
+           given={A.\bibnamedelimi G.},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=faaf419d492c87697f1ec4f7f4011c66}{%
+           family={Gurksy},
+           familyi={G\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=db2a2b64f858b2df2bb2ac4db4f06523}{%
+           family={Tucker},
+           familyi={T\bibinitperiod},
+           given={W.\bibnamedelimi H.},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b8557fbd51341792552c8da7ca952075}
+      \strng{fullhash}{b8557fbd51341792552c8da7ca952075}
+      \strng{bibnamehash}{b8557fbd51341792552c8da7ca952075}
+      \strng{authorbibnamehash}{b8557fbd51341792552c8da7ca952075}
+      \strng{authornamehash}{b8557fbd51341792552c8da7ca952075}
+      \strng{authorfullhash}{b8557fbd51341792552c8da7ca952075}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1476-4687}
+      \field{journaltitle}{Nature}
+      \field{month}{06}
+      \field{number}{5303}
+      \field{title}{Extragalactic X-ray Sources and Associations of Galaxies}
+      \field{volume}{231}
+      \field{year}{1971}
+      \field{pages}{437\bibrangedash 438}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1038/231437a0
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1038/231437a0
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1038/231437a0
+      \endverb
+    \endentry
+    \entry{Kaiser_1986}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=54743cd1f37377b20c96b832ba3b235f}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={Nick},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{54743cd1f37377b20c96b832ba3b235f}
+      \strng{fullhash}{54743cd1f37377b20c96b832ba3b235f}
+      \strng{bibnamehash}{54743cd1f37377b20c96b832ba3b235f}
+      \strng{authorbibnamehash}{54743cd1f37377b20c96b832ba3b235f}
+      \strng{authornamehash}{54743cd1f37377b20c96b832ba3b235f}
+      \strng{authorfullhash}{54743cd1f37377b20c96b832ba3b235f}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{In some hierarchical theories for galaxy formation the present evolution of the clustering pattern should approximate that which arises from scale-free initial conditions. The characteristic mass-scale of clustering is predicted to be evolving very rapidly, so we can hope to test these hypotheses by observations of clustering at quite accessible redshifts. We extend the well-known scaling laws for the dimensional quantities which characterize the clustering to give quantitative formulae for the evolution of general cluster catalogues. We show that X-ray selected clusters should display strong positive density evolution, with the characteristic luminosity, L*, remaining roughly constant. The comoving number density of clusters selected according to a criterion like Abell's should, on the other hand, remain roughly constant. Core radii should be much smaller in the past, and the gravitational lensing power of these clusters should be greater than for an unevolving population of clusters. Consideration is given to processes which will modify the self-similar scaling results. A corollary of the rapid evolution in these models is that small-amplitude, long-wavelength density perturbations will spatially modulate the clustering process, resulting in an enhancement of the correlation function for optically selected clusters, ξc, relative to the density correlation function ξϱ. The enhancement factor \\$\\xi\_\\text c/\\xi\_\\varrho\\$ can be expressed in terms of the spectral index of the initial fluctuations and the present logarithmic slope of the mass distribution function of rich clusters. Estimates of the latter, combined with the observed clustering lengths of galaxies and rich clusters, require a spectral index \\$n\\simeq-1.5\\$. A similar analysis applied to X-ray selected clusters suggests that these should be less strongly clustered than the optically selected clusters, though this result is sensitive to uncertainty in the slope of the X-ray luminosity function.}}
+      \field{issn}{0035-8711}
+      \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
+      \field{month}{09}
+      \field{number}{2}
+      \field{title}{{Evolution and clustering of rich clusters}}
+      \field{volume}{222}
+      \field{year}{1986}
+      \field{pages}{323\bibrangedash 345}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1093/mnras/222.2.323
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/mnras/article-pdf/222/2/323/18522062/mnras222-0323.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/mnras/222.2.323
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/mnras/222.2.323
+      \endverb
+    \endentry
+    \entry{Kolokythas_2020}{article}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=5f3bd4c23964620d8df4a83b145a6b33}{%
+           family={Kolokythas},
+           familyi={K\bibinitperiod},
+           given={Konstantinos},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d81a1c10d6018785a504f6627db4771d}{%
+           family={O’Sullivan},
+           familyi={O\bibinitperiod},
+           given={Ewan},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c64a2a2b4ca2953476b7bbc55fbf4206}{%
+           family={Giacintucci},
+           familyi={G\bibinitperiod},
+           given={Simona},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d9bb8ea7e663b5ff12b01a875d818434}{%
+           family={Worrall},
+           familyi={W\bibinitperiod},
+           given={Diana\bibnamedelima M},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=20a560357285faf15ca3b7c23504e03c}{%
+           family={Birkinshaw},
+           familyi={B\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5dca826b0fd995f9bd2d750b2f1019e3}{%
+           family={Raychaudhury},
+           familyi={R\bibinitperiod},
+           given={Somak},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eb1d783db3adaa4e1e0b867e3bb3edc4}{%
+           family={Horellou},
+           familyi={H\bibinitperiod},
+           given={Cathy},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a87271ca361b2148f99530c7de217b34}{%
+           family={Intema},
+           familyi={I\bibinitperiod},
+           given={Huib},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1c5ecfba4b839fe15148d8d3dd8fca0c}{%
+           family={Loubser},
+           familyi={L\bibinitperiod},
+           given={Ilani},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press (OUP)}%
+      }
+      \strng{namehash}{08b50fef6e4395ec68da5c45f61398c6}
+      \strng{fullhash}{080a652325d44d2f77df642b24bbd19f}
+      \strng{bibnamehash}{08b50fef6e4395ec68da5c45f61398c6}
+      \strng{authorbibnamehash}{08b50fef6e4395ec68da5c45f61398c6}
+      \strng{authornamehash}{08b50fef6e4395ec68da5c45f61398c6}
+      \strng{authorfullhash}{080a652325d44d2f77df642b24bbd19f}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1365-2966}
+      \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
+      \field{month}{6}
+      \field{number}{2}
+      \field{title}{Evidence of AGN feedback and sloshing in the X-ray luminous NGC 1550 galaxy group}
+      \field{volume}{496}
+      \field{year}{2020}
+      \field{pages}{1471\bibrangedash 1487}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1093/mnras/staa1506
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1093/mnras/staa1506
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1093/mnras/staa1506
+      \endverb
+    \endentry
+    \entry{Lovisari&Reiprich_2018}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=0446dc32a7ab2122573fbcb829b5cfcf}{%
+           family={Lovisari},
+           familyi={L\bibinitperiod},
+           given={L},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c2df03ca7c79b600a7570a28af175f6e}{%
+           family={Reiprich},
+           familyi={R\bibinitperiod},
+           given={T\bibnamedelima H},
+           giveni={T\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1ed59fc1df545e54c51c161ade983c41}
+      \strng{fullhash}{1ed59fc1df545e54c51c161ade983c41}
+      \strng{bibnamehash}{1ed59fc1df545e54c51c161ade983c41}
+      \strng{authorbibnamehash}{1ed59fc1df545e54c51c161ade983c41}
+      \strng{authornamehash}{1ed59fc1df545e54c51c161ade983c41}
+      \strng{authorfullhash}{1ed59fc1df545e54c51c161ade983c41}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{We study a sample of 207 nearby galaxy groups and clusters observed with XMM–Newton. Key aspects of this sample include the large size, the high data quality, and the large diversity of cluster dynamical states. We determine the overall metallicity within 0.3 R500 and the radial distribution of the metals. On average, we find a mild dependence of the core metallicity with the average temperature of the system in agreement with previous results. However, we identify the cause of this mild dependence to be due to relaxed systems only; disturbed systems do not show this trend, on average. The large scatter observed in this relation is strongly associated with the dynamical state of the systems: relaxed systems have, on average, a higher metallicity in the core than disturbed objects. The radial profiles of relaxed systems are centrally peaked and show a steep decrease with radius, flattening beyond 0.3–0.4 R500. The metallicity of disturbed systems is also higher in the centre but at much lower values than what is observed for relaxed objects. This finding is consistent with the picture that cluster mergers mix the abundance distribution by inducing large-scale motions. The scatter of the radial profiles is quite large, but while for relaxed systems it decreases almost monotonically as function of the radius, for disturbed systems it shows a significant boost at large radii. Systems with a central radio source have a flatter profile indicating that central AGNs are an efficient mechanism to uplift and redistribute the metals in the ICM.}}
+      \field{issn}{0035-8711}
+      \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
+      \field{month}{11}
+      \field{number}{1}
+      \field{title}{{The non-uniformity of galaxy cluster metallicity profiles}}
+      \field{volume}{483}
+      \field{year}{2018}
+      \field{pages}{540\bibrangedash 557}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1093/mnras/sty3130
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/mnras/article-pdf/483/1/540/27017065/sty3130.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/mnras/sty3130
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/mnras/sty3130
+      \endverb
+    \endentry
+    \entry{Schneider_2006}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=974c56abd961d7fc57e527b6b1225647}{%
+           family={Schneider},
+           familyi={S\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag Berlin Heidelberg 2006,}%
+      }
+      \strng{namehash}{974c56abd961d7fc57e527b6b1225647}
+      \strng{fullhash}{974c56abd961d7fc57e527b6b1225647}
+      \strng{bibnamehash}{974c56abd961d7fc57e527b6b1225647}
+      \strng{authorbibnamehash}{974c56abd961d7fc57e527b6b1225647}
+      \strng{authornamehash}{974c56abd961d7fc57e527b6b1225647}
+      \strng{authorfullhash}{974c56abd961d7fc57e527b6b1225647}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{Second Edition}
+      \field{isbn}{978-3-642-54082-0}
+      \field{title}{Extragalactic Astronomy and Cosmology: An Introduction}
+      \field{year}{2006}
+      \verb{doi}
+      \verb 10.1007/978-3-642-54083-7
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

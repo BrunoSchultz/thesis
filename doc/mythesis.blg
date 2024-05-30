@@ -1,0 +1,17 @@
+[0] Config.pm:307> INFO - This is Biber 2.17
+[2] Config.pm:310> INFO - Logfile is 'mythesis.blg'
+[171] biber:340> INFO - === Do Mai 16, 2024, 13:51:06
+[195] Biber.pm:418> INFO - Reading 'mythesis.bcf'
+[335] Biber.pm:972> INFO - Found 6 citekeys in bib section 0
+[362] Biber.pm:4383> INFO - Processing section 0
+[381] Biber.pm:4574> INFO - Looking for bibtex file 'bib/thesis_refs.bib' for section 0
+[383] bibtex.pm:1713> INFO - LaTeX decoding ...
+[401] bibtex.pm:1518> INFO - Found BibTeX data source 'bib/thesis_refs.bib'
+[575] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[575] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[575] Biber.pm:4203> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[575] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[596] bbl.pm:654> INFO - Writing 'mythesis.bbl' with encoding 'UTF-8'
+[606] bbl.pm:757> INFO - Output to mythesis.bbl
+[606] Biber.pm:130> WARN - legacy month field 'May' in entry 'Bykov_2015' is not an integer - this will probably not sort properly.
+[606] Biber.pm:132> INFO - WARNINGS: 1
