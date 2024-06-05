@@ -1,0 +1,609 @@
+#!/bin/tcsh
+
+# Set pipeline path
+set pathlength=`echo $0 | awk -F'/' '{print NF-1 }'`
+set procdir=`echo $0 | cut -d/ -f1-$pathlength`
+set curwd=`pwd`
+cd $procdir
+set procdir=`pwd`
+cd $curwd
+
+# Display help
+@ nargs=4
+if  ($#argv < $nargs) then
+cat <<EOF
+
+   Usage: ero_wavedet_pipeline dataDir PhotonImage ExpImage pipePref [Option=...]
+
+   Positional arguments:
+          dataDir         =  Main processing folder
+	  PhotonImage     =  Raw photon image over which to perform detection
+	  ExpImage        =  Exposure map relevant to the photon image
+	  pipePref        =  Global prefix of all output files
+ 
+   Optional wavelet arguments:
+          do_wavelet      =  Whether to run the wavelet filtering (default: yes)
+	  wv_thresh       =  Wavelet significance threshold  (default: "5.0,3.3,3.0,2.8")
+	  wv_expThresh    =  Pixels with a lower exposure will be masked (default: 30)
+	  wv_scalemin     =  Minimum significant scale (default: 2)
+	  wv_scalemax     =  Maximum scale (default: all scales)
+          wv_excsmoothed  =  Exclude large scale smoothed signal from reconstruction (default: no)
+          wv_maxiter      =  Maximum number of steps for iterative reconstruction (default: 10)
+          wv_deltaiter    =  Threshold for stopping iterations (default: 1e-5)
+          wv_srcmap       =  Map of brigh/compact sources to avoid ring artefact (default: none)
+          wv_postfix      =  Postfix of wavelet filtered products
+ 
+   Optional SExtractor arguments:
+          do_secat        =  Whether to run SExtractor (default: yes)
+	  se_thresh       =  Detection signal to noise threshold (default: 5.0)
+	  se_deblendThr   =  Fractional flux threshold for Deblending (default: 0.002)
+	  se_backSize     =  Background cell size in pixels (default: 64)
+	  se_bgfiltersize =  Number of cells for background median filtering (default: 5)
+          se_postfix      =  Postfix of SExtractor data products
+ 
+   Optional background map arguments:
+          do_bgmap        =  Whether to compute the background map (default: yes)
+	  bg_mode         =  Background estimation mode: fit/fullfit/fixed/sextractor/iterse (default: fit) 
+	  bg_Template     =  Template for additionnal background component (default: none)
+          bg_postfix      =  Postfix of background data products
+ 
+   Optional ermldet arguments:
+          do_ermldet      =  Whether to run ermldet (default: yes)
+          ml_shapeletpsf  =  Whether to use the shapelet PSF (default: yes)
+          ml_photonmode   =  Whether to use the event based likelihood (default: yes)
+          ml_extmin       =  Maximum source extent in pixels (default: 2.0)
+          ml_extmax       =  Maximum source extent in pixels (default: 20.0)
+          ml_nmaxfit      =  Maximum number of sources for joint fits (default: 1)
+          ml_multrad      =  Maximum source distance for joint fits (default: 30.0)
+          ml_nmulsou      =  Maximum new sources for source splitting (default: 2)
+          ml_scalefactor  =  Fit radius in units of input source extent (default: 3.0)
+          ml_cutrad       =  Minimum fit radius in pixels or EEF if < 1 (default: 15.0)
+          ml_likemin      =  Detection likelihood threshold (default: 5.0)
+          ml_extlikemin   =  Extention likelihood thereshold (default: 8.0)
+          ml_nproc        =  Number of simultaneous processes (default: 1)
+          ml_postfix      =  Postfix of ermldet data products
+
+EOF
+exit
+endif
+
+# Positional arguments
+set dataDir=$1
+set imgName=$2
+set expName=$3
+set outpref=$4
+if !(-e ${dataDir}/${imgName}) then
+     echo "*** Invalid inputs: photon image '${dataDir}/${imgName}' does not exist"
+     exit
+endif
+if !(-e ${dataDir}/${expName}) then
+     echo "*** Invalid inputs: exposure map '${dataDir}/${expName}' does not exist"
+     exit
+endif
+
+# Wavelet defaults
+set do_wavelet=1
+set filtThresh="5.0,3.3,3.0,2.8"
+set expThresh=30.0
+set ScaleMin=1
+set ScaleMax=8
+set wv_srcmap=0
+set wv_MaxIter=10
+set wv_deltaIter=1e-5
+set ExcSmoothed=0
+set wave_post=''
+# SExtractor defaults
+set do_secat=1
+set detectThresh=5.0
+set deblendThresh=0.002
+set backSize=64
+set backFiltSize=5
+set se_post=''
+# Background defaults
+set do_bgmap=1
+set bg_mode=fit
+set instBgdTemplate=none
+set fitTemplateNorm=0
+set iterSE=0
+set bg_post=''
+# ermldet defaults
+set do_ermldet=1
+set ml_shapelet=1
+set ml_photon=1
+set ml_extmin=2.0
+set ml_extmax=20.0
+set ml_nmaxfit=1
+set ml_multrad=30.0
+set ml_nmulsou=2
+set ml_scalefactor=3.0
+set ml_cutrad=15.0
+set ml_likemin=5.0
+set ml_extlikemin=8.0
+set ml_nproc=1
+set ml_post=''
+
+# Read-in optional arguments
+set ml_post=''
+if ($#argv > $nargs) then 
+        @ i = $nargs
+	while ( $i < $#argv )
+                @ i++
+                set key=`echo $argv[$i] | cut -d= -f1 | tr '[a-z]' '[A-Z]'`
+                set keyval=`echo $argv[$i] | cut -d= -f2`
+                switch ($key)
+
+			# Wavelet options
+                        case DO_WAVELET:
+                                set keyval=`echo $keyval | tr '[a-z]' '[A-Z]'`
+				if (($keyval != 0) && ($keyval != N) &&  ($keyval != NO) && \
+				    ($keyval != 1) && ($keyval != Y) &&  ($keyval != YES)) then
+                                	echo "*** Invalid inputs: 'do_wavelet' is a boolean flag"
+					exit
+				endif
+				if (($keyval == 0) || ($keyval == N) ||  ($keyval == NO)) then 
+					set do_wavelet=0
+				else
+					set do_wavelet=1
+				endif
+                                breaksw
+                        case WV_THRESH:
+                                set filtThresh=$keyval
+                                breaksw
+                        case WV_EXPTHRESH:
+                                set expThresh=$keyval
+                                breaksw
+                        case WV_SRCMAP:
+                                set wv_srcmap=$keyval
+                                breaksw
+                        case WV_MAXITER:
+                                if (`echo $keyval | egrep '^[0-9]+$'` != $keyval) then
+                                	echo "*** wv_maxiter is not an integer ($keyval)"
+					exit
+ 				endif
+ 				if ($keyval < 1) then
+                                 	echo "*** wv_maxiter must be positive ($keyval)"
+ 					exit
+ 				endif
+                                set wv_MaxIter=$keyval
+                                breaksw
+			case WV_DELTAITER:
+				set wv_deltaIter=$keyval
+				breaksw
+			case WV_EXCSMOOTHED:
+			        set keyval=`echo $keyval | tr '[a-z]' '[A-Z]'`
+			        if (($keyval != 0) && ($keyval != N) &&  ($keyval != NO) && \
+				   ($keyval != 1) && ($keyval != Y) &&  ($keyval != YES)) then
+				      echo "*** Invalid inputs: 'wv_excsmoothed' is a boolean flag"
+				      exit
+			        endif
+			        if (($keyval == 0) || ($keyval == N) ||  ($keyval == NO)) then 
+				      set ExcSmoothed=0
+			        else
+				      set ExcSmoothed=1
+			        endif
+			        breaksw
+                        case WV_SCALEMIN:
+                                if (`echo $keyval | egrep '^[0-9]+$'` != $keyval) then
+                                	echo "*** wv_scalemin is not an integer ($keyval)"
+					exit
+				endif
+				if ($keyval < 1) then
+                                	echo "*** wv_scalemin must be positive ($keyval)"
+					exit
+				endif
+                                set ScaleMin=$keyval
+                                breaksw
+                        case WV_SCALEMAX:
+                                if (`echo $keyval | egrep '^[0-9]+$'` != $keyval) then
+                                	echo "*** wv_scalemax is not an integer ($keyval)"
+					exit
+				endif
+				if ($keyval < 1) then
+                                	echo "*** wv_scalemax must be positive ($keyval)"
+					exit
+				endif
+                                set ScaleMax=$keyval
+                                breaksw
+                        case WV_POSTFIX:
+                                set wave_post=$keyval
+                                breaksw
+
+			# SExtractor options
+                        case DO_SECAT:
+                                set keyval=`echo $keyval | tr '[a-z]' '[A-Z]'`
+				if (($keyval != 0) && ($keyval != N) &&  ($keyval != NO) && \
+				    ($keyval != 1) && ($keyval != Y) &&  ($keyval != YES)) then
+                                	echo "*** Invalid inputs: 'do_secat' is a boolean flag"
+					exit
+				endif
+				if (($keyval == 0) || ($keyval == N) ||  ($keyval == NO)) then 
+					set do_secat=0
+				else
+					set do_secat=1
+				endif
+                                breaksw
+                        case SE_POSTFIX:
+                                set se_post=$keyval
+                                breaksw
+                        case SE_THRESH:
+                                set detectThresh=$keyval
+                                breaksw
+                        case SE_DEBLENDTHR:
+                                set deblendThresh=$keyval
+                                breaksw
+                        case SE_BACKSIZE:
+                                if (`echo $keyval | egrep '^[0-9]+$'` != $keyval) then
+                                	echo "*** se_backSize is not an integer ($keyval)"
+					exit
+				endif
+				if ($keyval < 10) then
+                                	echo "*** se_backSize must be >= 10 ($keyval)"
+					exit
+				endif
+                                set backSize=$keyval
+                                breaksw
+                        case SE_BGFILTERSIZE:
+                                if (`echo $keyval | egrep '^[0-9]+$'` != $keyval) then
+                                	echo "*** se_bgfiltersize is not an integer ($keyval)"
+					exit
+				endif
+				if ($keyval < 1) then
+                                	echo "*** se_bgfiltersize must be positive ($keyval)"
+					exit
+				endif
+                                set backFiltSize=$keyval
+                                breaksw
+
+			# Background map options
+                   	case DO_BGMAP:
+                                set keyval=`echo $keyval | tr '[a-z]' '[A-Z]'`
+				if (($keyval != 0) && ($keyval != N) &&  ($keyval != NO) && \
+				    ($keyval != 1) && ($keyval != Y) &&  ($keyval != YES)) then
+                                	echo "*** Invalid inputs: 'do_bgmap' is a boolean flag"
+					exit
+				endif
+				if (($keyval == 0) || ($keyval == N) ||  ($keyval == NO)) then 
+					set do_bgmap=0
+				else
+					set do_bgmap=1
+				endif
+                                breaksw
+                    	case BG_POSTFIX:
+                                set bg_post=$keyval
+                                breaksw
+                    	case BG_MODE:
+                                set bg_mode=`echo $keyval | tr '[A-Z]' '[a-z]'`
+				switch ( ${bg_mode} ) 
+					case fit: 
+						set iterSE=0
+						set fitTemplateNorm=0
+						breaksw
+					case fullfit: 
+						set iterSE=0
+						set fitTemplateNorm=1
+						set bg_mode=fit
+						breaksw
+					case fixed: 
+						set iterSE=0
+						set fitTemplateNorm=0
+						breaksw
+					case sextractor: 
+						set iterSE=0
+						set fitTemplateNorm=0
+						breaksw
+					case iterse: 
+						set iterSE=1
+						set fitTemplateNorm=0
+						set bg_mode=sextractor
+						breaksw
+                        		default:
+                                		echo "*** Invalid keyword argument: $key"
+                                		exit
+                                		breaksw
+				endsw
+				breaksw
+                    	case BG_TEMPLATE:
+                                set instBgdTemplate=$keyval
+				if !(-e ${instBgdTemplate}) then
+     					echo "*** Invalid inputs: background template '${instBgdTemplate}' does not exist"
+     					exit
+				endif
+                                breaksw
+                   	case BG_FITTMPLNORM:
+                                set keyval=`echo $keyval | tr '[a-z]' '[A-Z]'`
+				if (($keyval != 0) && ($keyval != N) &&  ($keyval != NO) && \
+				    ($keyval != 1) && ($keyval != Y) &&  ($keyval != YES)) then
+                                	echo "*** Invalid inputs: 'bg_fitNorm' is a boolean flag"
+					exit
+				endif
+				if (($keyval == 0) || ($keyval == N) ||  ($keyval == NO)) then 
+					set fitTemplateNorm=0
+				else
+					set fitTemplateNorm=1
+				endif
+                                breaksw
+
+			# ermldet options
+                        case DO_ERMLDET:
+                                set keyval=`echo $keyval | tr '[a-z]' '[A-Z]'`
+				if (($keyval != 0) && ($keyval != N) &&  ($keyval != NO) && \
+				    ($keyval != 1) && ($keyval != Y) &&  ($keyval != YES)) then
+                                	echo "*** Invalid inputs: 'do_ermldet' is a boolean flag"
+					exit
+				endif
+				if (($keyval == 0) || ($keyval == N) ||  ($keyval == NO)) then 
+					set do_ermldet=0
+				else
+					set do_ermldet=1
+				endif
+                                breaksw
+                        case ML_POSTFIX:
+                                set ml_post=$keyval
+                                breaksw
+                        case ML_SHAPELET:
+                                set keyval=`echo $keyval | tr '[a-z]' '[A-Z]'`
+				if (($keyval != 0) && ($keyval != N) &&  ($keyval != NO) && \
+				    ($keyval != 1) && ($keyval != Y) &&  ($keyval != YES)) then
+                                	echo "*** Invalid inputs: 'ml_shapelet' is a boolean flag"
+					exit
+				endif
+				if (($keyval == 0) || ($keyval == N) ||  ($keyval == NO)) then 
+					set ml_shapelet=0
+				else
+					set ml_shapelet=1
+				endif
+                                breaksw
+                        case ML_PHOTON:
+                                set keyval=`echo $keyval | tr '[a-z]' '[A-Z]'`
+				if (($keyval != 0) && ($keyval != N) &&  ($keyval != NO) && \
+				    ($keyval != 1) && ($keyval != Y) &&  ($keyval != YES)) then
+                                	echo "*** Invalid inputs: 'ml_photon' is a boolean flag"
+					exit
+				endif
+				if (($keyval == 0) || ($keyval == N) ||  ($keyval == NO)) then 
+					set ml_photon=0
+				else
+					set ml_photon=1
+				endif
+                                breaksw
+                        case ML_EXTMIN:
+                                set ml_extmin=$keyval
+                                breaksw
+                        case ML_EXTMAX:
+                                set ml_extmax=$keyval
+                                breaksw
+                        case ML_NMAXFIT:
+                                if (`echo $keyval | egrep '^[0-9]+$'` != $keyval) then
+                                	echo "*** ml_nmaxfit is not an integer ($keyval)"
+					exit
+				endif
+                                set ml_nmaxfit=$keyval
+                                breaksw
+                        case ML_MULTRAD:
+                                set ml_multrad=$keyval
+                                breaksw
+                        case ML_NMULSOU:
+                                if (`echo $keyval | egrep '^[0-9]+$'` != $keyval) then
+                                	echo "*** ml_nmulsou is not an integer ($keyval)"
+					exit
+				endif
+                                set ml_nmulsou=$keyval
+                                breaksw
+                        case ML_SCALEFACTOR:
+                                set ml_scalefactor=$keyval
+                                breaksw
+                        case ML_CUTRAD:
+                                set ml_cutrad=$keyval
+                                breaksw
+                        case ML_LIKEMIN:
+                                set ml_likemin=$keyval
+                                breaksw
+                        case ML_EXTLIKEMIN:
+                                set ml_extlikemin=$keyval
+                                breaksw
+                        case ML_NPROC:
+                                if (`echo $keyval | egrep '^[0-9]+$'` != $keyval) then
+                                	echo "*** ml_nproc is not an integer ($keyval)"
+					exit
+				endif
+				if ($keyval < 1) then
+                                	echo "*** ml_nproc must be positive ($keyval)"
+					exit
+				endif
+                                set ml_nproc=$keyval
+                                breaksw
+                        default:
+                                echo "*** Invalid keyword argument: $key"
+                                exit
+                                breaksw
+
+                endsw
+        end
+endif
+
+# Resolving background option conflicts
+if (("${bg_mode}" == "fixed") && ("${instBgdTemplate}" == none)) then
+    	echo "*** Invalid inputs: using bg_fixedmap requires a template"
+	exit	
+	
+endif
+if (("${fitTemplateNorm}" == 1) && ("${instBgdTemplate}" == 'none')) then
+	echo "*** Invalid inputs: setting bg_fitTmplNorm requires an input background template"
+	exit
+endif
+if ("${fitTemplateNorm}" == 1) then
+    	@ Nsteps=${do_wavelet}
+    	@ Nsteps+=${do_secat}
+    	@ Nsteps+=${do_bgmap}
+    	if (${Nsteps} != 3) then
+		echo "*** Invalid inputs: template normalisation fit requires to perform wavelet, SExtractor and background estimation steps"
+		exit			
+    	endif
+endif
+
+# Check ermldet inputs
+if (("${ml_nmulsou}" > 1) && ("${ml_nproc}" > 1)) then
+	echo "*** Invalid inputs: ermldet processing cannot be split (ml_nproc=${ml_nproc}) when multi-source fit is activated (ml_nmulsou=${ml_nmulsou})"
+	exit
+endif
+
+
+# Combine postfix
+if ("${wave_post}" != "") set wave_post="-${wave_post}"
+if ("${se_post}" != "") set se_post="-${se_post}"
+set se_post="${wave_post}${se_post}"
+if ("${bg_post}" != "") set bg_post="-${bg_post}"
+set bg_post="${se_post}${bg_post}"
+if ("${ml_post}" != "") set ml_post="-${ml_post}"
+set ml_post="${bg_post}${ml_post}"
+
+# Run first step wavelet filtering
+if (${do_wavelet}) then
+    # Set background suitable for wavelet filtering
+    set wvtInstBgdOpt=""
+    switch (${bg_mode})
+    	case fit:
+		if ((${instBgdTemplate} != 'none') && (${fitTemplateNorm} == 0)) set wvtInstBgdOpt="bgdImage=${instBgdTemplate}"
+    		breaksw
+    	case sextractor:
+		if (${instBgdTemplate} != 'none') set wvtInstBgdOpt="bgdImage=${instBgdTemplate}"
+    		breaksw
+	case fixed:
+		fkeypar ${instBgdTemplate}+0 EXPNORM
+        	if ("`pget fkeypar exist`" == 'yes') then
+    	    		set ExpNorm="`pget fkeypar value`"
+        	else
+    	    		ftstat ${instBgdTemplate}+0 > /dev/null
+    	    		set BgPhot=`pget ftstat sum | awk '{print $1 * 0.2}'`
+    	    		ftstat ${dataDir}/${expName}+0 > /dev/null
+    	    		set ExNorm=`pget ftstat sum`
+    	    		set ExpNorm=`echo $BgPhot $ExNorm | awk '{print $1 / $2}'`
+        	endif
+        	fcarith infile=${dataDir}/${expName} const=${ExpNorm} outfil=${dataDir}/${outpref}_wvtBg.fits ops=MUL datatype=float clobber=yes
+        	farith infil1=${instBgdTemplate} infil2=${dataDir}/${outpref}_wvtBg.fits outfil=${dataDir}/${outpref}_wvtBg.fits ops=SUB datatype=float clobber=yes
+        	fimgtrim infile=${dataDir}/${outpref}_wvtBg.fits threshlo=0.0 const_lo=0.0 threshup=INDEF type=a outfile=${dataDir}/${outpref}_wvtBg.fits clobber=yes >& /dev/null 
+		set wvtInstBgdOpt="bgdImage=${dataDir}/${outpref}_wvtBg.fits"
+		breaksw
+    endsw
+    # Run wavelt code
+    set SrcMapStr=''
+    if ($wv_srcmap != 0) set SrcMapStr="SrcMap=$wv_srcmap"
+    set mycmd="${procdir}/csh/mk_wavefilt.csh ${imgName} ${outpref}_wvtFilt${wave_post}.fits threshold=${filtThresh} scalemin=${ScaleMin} scalemax=${ScaleMax} expthreshold=${expThresh} expImage=${expName} maskImage=${outpref}_detmask.fits ${wvtInstBgdOpt} datadir=${dataDir} maxIter=${wv_MaxIter} deltaIter=${wv_deltaIter} ExcSmoothed=${ExcSmoothed} ${SrcMapStr}"
+    echo
+    echo "* Running Initial wavelet filtering:"
+    #echo $mycmd
+    $mycmd
+    echo
+endif
+
+# SExtractor catalogs
+if (${do_secat}) then
+    set mycmd="${procdir}/csh/mk_sexcat.csh ${dataDir}/${outpref}_wvtFilt${wave_post}.fits ${dataDir}/${outpref}_detmask.fits ${dataDir}/${outpref}_SE detectThresh=${detectThresh} deblendThresh=${deblendThresh} backSize=${backSize} backFiltSize=${backFiltSize} postfix=${se_post}" 
+    echo
+    echo "* Running SExtractor:"
+    #echo $mycmd
+    $mycmd
+    echo
+endif
+
+# Background estimation
+if (${do_bgmap}) then
+   switch ( ${bg_mode} )
+     case fit:
+    	set mycmd="${procdir}/csh/mk_bgmap.csh ${dataDir}/${imgName}  ${dataDir}/${expName} ${dataDir}/${outpref}_SE${se_post}_segment.fits ${dataDir}/${outpref}_detmask.fits ${dataDir}/${outpref}_bgd${bg_post}.fits instBgdTemplate=${instBgdTemplate} fitTemplateNorm=${fitTemplateNorm}" 
+    	echo
+    	echo "* Background estimation ..."
+    	#echo $mycmd
+    	$mycmd
+    	echo "  Done."
+	breaksw
+     case sextractor:
+    	farith infil1=${dataDir}/${outpref}_SE${se_post}_bgd.fits infil2=${dataDir}/${expName} outfil=${dataDir}/${outpref}_bgd${bg_post}.fits ops=MUL datatype=float clobber=yes
+	if ("${instBgdTemplate}" != 'none') farith infil1=${dataDir}/${outpref}_bgd${bg_post}.fits infil2=${dataDir}/${instBgdTemplate} outfil=${dataDir}/${outpref}_bgd${bg_post}.fits ops=MUL datatype=float clobber=yes
+	breaksw
+     case fixed:
+    	/bin/cp -f ${instBgdTemplate} ${dataDir}/${outpref}_bgd${bg_post}.fits
+	breaksw
+   endsw
+   echo
+endif
+
+# Re-run all steps if re-scaled instrumental background must be subtracted
+# when generating the wavelet image
+if ((${fitTemplateNorm} == 1) || (${iterSE} == 1)) then
+ 
+     # Compute background map for wavelets
+     switch (${bg_mode})
+     	case fit:
+		fkeypar fitsfile=${dataDir}/${outpref}_bgd.fits+0 keyword=SKYBGVAL
+     		if (`pget fkeypar exist` != 'yes') then
+   			echo "*** Error: keyword SKYBGVAL not found in the header of background file ${dataDir}/${outpref}_bgd.fits"
+			exit
+     		endif
+     		set SkyBg=`pget fkeypar value`
+     		ftstat infile=${dataDir}/${expName}+0  outfile=STDOUT > & /dev/null
+     		set totExp=`pget ftstat sum`
+     		ftstat infile=${dataDir}/${outpref}_bgd.fits+0  outfile=STDOUT > & /dev/null
+     		set totBgd=`pget ftstat sum`
+     		set SkyBg=`echo $totBgd $totExp $SkyBg | awk '{if($3 >= ($1/$2*0.2)){print $3}else{print $1/$2*0.2}}'`
+     		breaksw
+	case sextractor:
+    	    	ftstat ${instBgdTemplate}+0 > /dev/null
+    	    	set BgPhot=`pget ftstat sum | awk '{print $1 * 0.2}'`
+    	    	ftstat ${dataDir}/${expName}+0 > /dev/null
+    	    	set ExNorm=`pget ftstat sum`
+    	    	set SkyBg=`echo $BgPhot $ExNorm | awk '{print $1 / $2}'`
+		breaksw
+     endsw
+     fcarith infile=${dataDir}/${expName}+0 const=${SkyBg} outfil=${dataDir}/${outpref}_wvtBg.fits ops=MUL clobber=yes datatype=float
+     farith infil1=${dataDir}/${outpref}_bgd.fits+0 infil2=${dataDir}/${outpref}_wvtBg.fits  outfil=${dataDir}/${outpref}_wvtBg.fits ops=SUB clobber=yes datatype=float
+     fimgtrim infile=${dataDir}/${outpref}_wvtBg.fits threshlo=0.0 const_lo=0.0 threshup=INDEF type=a outfile=${dataDir}/${outpref}_wvtBg.fits clobber=yes >& /dev/null 
+
+     # Run wavelets again
+     set SrcMapStr=''
+     if ($wv_srcmap != 0) set SrcMapStr="SrcMap=$wv_srcmap"
+     set mycmd="${procdir}/csh/mk_wavefilt.csh ${imgName} ${outpref}_wvtFilt${wave_post}.fits threshold=${filtThresh} scalemin=${ScaleMin} scalemax=${ScaleMax} expthreshold=${expThresh} expImage=${expName} maskImage=${outpref}_detmask.fits bgdImage=${outpref}_wvtBg.fits datadir=${dataDir} maxIter=${wv_MaxIter} deltaIter=${wv_deltaIter} ExcSmoothed=${ExcSmoothed} ${SrcMapStr}"
+     echo
+     echo "* Updating wavelet filtering:"
+     #echo $mycmd
+     $mycmd
+
+     # Run SExtractor again
+     set mycmd="${procdir}/csh/mk_sexcat.csh ${dataDir}/${outpref}_wvtFilt${wave_post}.fits ${dataDir}/${outpref}_detmask.fits ${dataDir}/${outpref}_SE detectThresh=${detectThresh} deblendThresh=${deblendThresh} backSize=${backSize} backFiltSize=${backFiltSize} postfix=${se_post}" 
+     echo
+     echo "* Updating SExtractor catalogs:"
+     #echo $mycmd
+     $mycmd
+
+     # Final background estimation
+     if (${bg_mode} == 'fit') then
+    	set mycmd="${procdir}/csh/mk_bgmap.csh ${dataDir}/${imgName} ${dataDir}/${expName} ${dataDir}/${outpref}_SE${se_post}_segment.fits ${dataDir}/${outpref}_detmask.fits ${dataDir}/${outpref}_bgd${bg_post}.fits instBgdTemplate=${instBgdTemplate} fitTemplateNorm=${fitTemplateNorm}" 
+     	echo
+     	echo "* Updating background estimation ..."
+     	#echo $mycmd
+     	$mycmd
+     	echo "  Done."
+     else
+    	farith infil1=${dataDir}/${outpref}_SE${se_post}_bgd.fits infil2=${dataDir}/${expName} outfil=${dataDir}/${outpref}_bgd${bg_post}.fits ops=MUL datatype=float clobber=yes
+	farith infil1=${dataDir}/${outpref}_bgd${bg_post}.fits infil2=${dataDir}/${outpref}_wvtBg.fits outfil=${dataDir}/${outpref}_bgd${bg_post}.fits ops=ADD datatype=float clobber=yes
+     endif
+     echo
+
+endif
+
+# Run ermldet
+if (${do_ermldet}) then
+    echo
+    echo "* Running ermldet ..."
+    set mycmd="${procdir}/csh/mk_ermldet_cat.csh ${dataDir} ${imgName} ${expName} ${outpref}${ml_post} ShapeletPsf=${ml_shapelet} PhotonMode=${ml_photon} cutRad=${ml_cutrad} ExtMin=${ml_extmin} ExtMax=${ml_extmax} nMaxFit=${ml_nmaxfit} multRad=${ml_multrad} nMulSou=${ml_nmulsou} scaleFactor=${ml_scalefactor} likeMin=${ml_likemin} extLikeMin=${ml_extlikemin} nproc=${ml_nproc}"
+    ${mycmd}
+#    if (${ml_nproc} >1) then
+#	set mycmd="${procdir}/csh/run_split_ermldet.csh ${dataDir} ${imgName} ${expName} ${outpref}${ml_post} ${ml_nproc} ShapeletPsf=${ml_shapelet} PhotonMode=${ml_photon} cutRad=${ml_cutrad} ExtMax=${ml_extmax} nMaxFit=${ml_nmaxfit} multRad=${ml_multrad} nMulSou=${ml_nmulsou} scaleFactor=${ml_scalefactor} likeMin=${ml_likemin} extLikeMin=${ml_extlikemin}"
+#	${mycmd}
+#    else
+#	set mycmd="${procdir}/csh/run_single_ermldet.csh ${dataDir} ${imgName} ${expName} ${outpref}${ml_post} ShapeletPsf=${ml_shapelet} PhotonMode=${ml_photon} cutRad=${ml_cutrad} ExtMax=${ml_extmax} nMaxFit=${ml_nmaxfit} multRad=${ml_multrad} nMulSou=${ml_nmulsou} scaleFactor=${ml_scalefactor} likeMin=${ml_likemin} extLikeMin=${ml_extlikemin}"
+#	${mycmd}
+#    endif
+    echo
+endif
+
