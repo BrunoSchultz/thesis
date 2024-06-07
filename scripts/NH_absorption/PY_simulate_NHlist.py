@@ -9,7 +9,7 @@ import os, subprocess, shutil
 
 script_version = 0.0
 script_descr="""
-List NH values of a given NH map and simulate them into CXB model in XSPEC."""
+List NH values of a given NH map and simulate them into CXB model in XSPEC via Xspec_sim.sh script."""
 
 # Open argument parser
 parser = argparse.ArgumentParser(description=script_descr)
@@ -39,6 +39,7 @@ nh_ar = np.concatenate(img)  # get all nH values in one array
 
 nh_ar_e22 = nh_ar / 1e22
 nh_ar_e22 = np.unique(np.round(nh_ar_e22, 4))
+nh_ar_e22 = nh_ar_e22[~np.isnan(nh_ar_e22)]
 
 with open('{0}'.format(list_nh_map), 'w') as f:  # print the NHe22 in text file
     for item in nh_ar_e22:

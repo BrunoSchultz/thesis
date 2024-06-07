@@ -30,7 +30,7 @@ cluster = f'{args.cluster}'
 
 x_start = 0
 y_start = 0
-box_size = 50  # resolution of the sampled grid
+box_size_d = 3.5 / 60  # resolution of the sampled grid in degree
 
 # Load the FITS file
 hdul = fits.open(fits_file)
@@ -38,6 +38,8 @@ hdu = hdul[0].data
 prihdr = hdul[0].header
 w = wcs.WCS(prihdr, relax=False)
 im_size = prihdr['NAXIS1']
+pixsize = prihdr['CDELT2']  # in degree
+box_size = math.floor(box_size_d / pixsize)
 
 n = math.floor(im_size/box_size)
 #nh2_out = f'NH2_Willingale_{box_size}x{box_size}box'
