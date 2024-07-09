@@ -4,15 +4,31 @@
 \chapter{Theoretical Background}
 \label{sec:theoretical_background}
 %==============================================================================
-
 \section{Clusters and groups of galaxies}
-Throughout the Universe galaxies are not homogeneously distributed, but rather are aggregated in massive cosmic structures called galaxy groups or galaxy clusters. Galaxy clusters feature masses typically surpassing \(M \gtrsim  \SI{3e14}{\solarmass}\), while galaxy groups lie closer to \(M \sim \SI{3e13}{\solarmass}\) (\cite{Schneider_2006}). Furthermore, advancements in X-ray astronomy have revealed that these structures serve as significant emitters of X-ray radiation (\cite{Cavaliere_1971}). It is well understood that the emission stems from a hot intergalactic gas known as the intracluster medium (ICM), characterized by temperatures in the \SIrange{e7}{e8}{\kelvin} range and constituting the bulk baryonic component of galaxy clusters (\cite{Schneider_2006}).
+Throughout the Universe, galaxies are not distributed homogeneously but are instead aggregated into massive cosmic structures known as galaxy groups or galaxy clusters. Galaxy clusters -- the largest relaxed structures in the Universe -- typically have masses exceeding \(M \gtrsim 3 \times 10^{14} M_{\odot}\), whereas galaxy groups have masses around \(M \sim 3 \times 10^{13} M_{\odot}\) (\cite{Schneider_2006}). Advancements in X-ray astronomy have demonstrated that these structures are significant sources of X-ray radiation (\cite{Cavaliere_1971}). This emission is well understood to originate from a hot intergalactic gas known as the intracluster medium (ICM), which is characterized by temperatures in the range of \(10^7\) to \(10^8\) K and constitutes the primary baryonic component of galaxy clusters (\cite{Schneider_2006}).
 %
 \subsection{The Intracluster Medium (ICM)}
-Within the deep dark matter gravitational potential of galaxy clusters, sufficiently high temperatures are achieved to fully ionize lighter elements and partially ionize heavier elements, forming a plasma. This hot, diffuse and optically thin plasma emits copious amounts of X-ray radiation and is called the Intracluster Medium (ICM). In particular, X-ray analysis of the ICM have enabled a wide variety of cosmological studies regarding large-scale structure formation within the Universe (\cite{KravtsovBorgani2012}).
+Within the deep gravitational wells of galaxy clusters, the temperatures become sufficiently high to fully ionize lighter elements and partially ionize heavier elements, resulting in the formation of a plasma. This hot, diffuse, and optically thin plasma, known as the Intracluster Medium (ICM), emits significant amounts of X-ray radiation. X-ray analysis of the ICM have enabled a wide variety of cosmological studies, including large-scale structure formation in the Universe (\cite{KravtsovBorgani2012}).
 %
 \subsection{Emission Processes within the ICM} 
-A key result from electrodynamics is that accelerated charges radiate energy.  We refer to this radiation as bremsstrahlung or \enquote{free-free} when a free charged particle, typically an electron, is accelerated by the electric field of other charges, typically ions. In the ICM, this process dominates at temperatures above \(k_B T_\text{e} \gtrsim \SI{2}{\kilo\electronvolt}\), where the total emissivity at solar metallicity scales approximately as \(\epsilon_{\text{ff}} \propto T_\text{e}^{0.5} n_\text{e}\). At lower temperatures \(k_B T \lesssim \SI{2}{\kilo\electronvolt}\), line emission becomes significant, with the emissivity being roughly described by \(\epsilon \propto T_\text{e}^{-0.6} n_\text{e}\). Consequently, in the relevant energy range of \(0.1-2.4 \text{ keV}\), one can approximately write
+A key principle of electrodynamics is that accelerated charges radiate energy. This radiation is referred to as bremsstrahlung or "free-free" when a free charged particle, typically an electron, is accelerated by the electric field of other charges, usually ions. In the ICM, this process predominates at temperatures above \(k_B T_\text{e} \gtrsim \SI{2}{\kilo\electronvolt}\), where the total emissivity at solar metallicity scales approximately as 
 \begin{align*}
-    \epsilon_{0.1-2.4\text{keV}} \propto n_\text{e}^2
-\end{align*}\(.
+    \epsilon_{\text{ff}} \propto T_\text{e}^{\frac{1}{2}} n_\text{e},
+\end{align*}
+with \(n_\text{e}\) and \(T_\text{e}\) as the electron number density and temperature, respectively. At lower temperatures (\(k_B T \lesssim \SI{2}{\kilo\electronvolt}\)), line emission becomes significant, with the emissivity being roughly described by 
+\begin{align*}
+    \epsilon \propto T_\text{e}^{-0.6} n_\text{e}.
+\end{align*}
+%
+\subsection{The galaxy group NGC1550}
+\textcolor{red}{Insert cool stuff about cluster here}
+%
+\section{eROSITA}
+The extended ROentgen Survey with an Imaging Telescope Array (eROSITA) is a highly sensitive, wide-field X-ray telescope designed to capture deep and precise images across large areas of the sky. Mounted on the Spektrum-Roentgen-Gamma (SRG) observatory in a halo orbit around the second Lagrange Point, eROSITA operates within the 0.2 to 10.0 keV energy range. It is the first instrument to perform an all-sky imaging survey in the hard X-ray band (2.0 to 10.0 keV). In the soft X-ray band (0.5 to 2.0 keV), eROSITA boasts a sensitivity that is approximately 20 times greater than that of its predecessor, the ROSAT All-Sky Survey. eROSITA features seven identical mirror modules, known as Telescope Modules (TMs), each with 54 mirror shells in Wolter-I geometry and a 1.6-meter focal length. Five TMs (TM1, TM2, TM3, TM4, TM6) have aluminum on-chip optical light filters and are collectively referred to as TM8. The remaining two TMs (TM5, TM7), designed for low-energy spectroscopy, lack these filters and are referred to as TM9. (\cite{Predehl2021})
+
+\todo{How many surverys; which are relevant for my analysis} 
+%
+\section{Skybackground and contamination sources}
+For a thorough analysis of X-ray photons, it is essential to carefully consider both external contamination and internal instrumental distortion effects. The following section will provide a brief overview of the most important factors.
+\paragraph*{X-ray Background (XRB):} The X-ray background consists of multiple sources, including diffuse emissions from the Local Hot Bubble and the Galactic halo \cite{galeazzi2006xmm}, as well as discrete extragalactic sources, predominantly AGNs \cite{brandt2005deep}.
+\paragraph*{Particle Induced Background (PIB)} 
