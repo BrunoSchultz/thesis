@@ -57,6 +57,157 @@
       \verb 10.1146/annurev.astro.43.051804.102213
       \endverb
     \endentry
+    \entry{Bulbul_2020}{article}{}
+      \name{author}{19}{}{%
+        {{un=0,uniquepart=base,hash=281cb5d3fa9f361dc075fe2d2ce07d5f}{%
+           family={Bulbul},
+           familyi={B\bibinitperiod},
+           given={Esra},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7fba85c05dec7bd0da571ebcc259aac0}{%
+           family={Kraft},
+           familyi={K\bibinitperiod},
+           given={Ralph},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=855096b04ec4b62fdf9712032b820ade}{%
+           family={Nulsen},
+           familyi={N\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=14d3efaf2ff0a3cd9d8ec3f121001af6}{%
+           family={Freyberg},
+           familyi={F\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ada4e3ee8af7a17049235e21f225e069}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={Eric\bibnamedelima D.},
+           giveni={E\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=53812d688c357243a727b8458b2667f3}{%
+           family={Grant},
+           familyi={G\bibinitperiod},
+           given={Catherine},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=76bf012271b69141e09a577df060392e}{%
+           family={Bautz},
+           familyi={B\bibinitperiod},
+           given={Mark\bibnamedelima W.},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=11f1dba7442da31d98d003457a306efe}{%
+           family={Burrows},
+           familyi={B\bibinitperiod},
+           given={David\bibnamedelima N.},
+           giveni={D\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9e724bf060ab233ea780fd70b674f4ec}{%
+           family={Allen},
+           familyi={A\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fed62fec8428c3a8fd5890f54452a8ca}{%
+           family={Eraerds},
+           familyi={E\bibinitperiod},
+           given={Tanja},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3dbc2b48f5aa4a23f929bdec4ff7d9f0}{%
+           family={Fioretti},
+           familyi={F\bibinitperiod},
+           given={Valentina},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b8a5663a22af3cede158f7ff81883d13}{%
+           family={Gastaldello},
+           familyi={G\bibinitperiod},
+           given={Fabio},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9e0b162648d23047c7a05ed091c944bb}{%
+           family={Ghirardini},
+           familyi={G\bibinitperiod},
+           given={Vittorio},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=787c1284a811cd99828ca8d83ec36001}{%
+           family={Hall},
+           familyi={H\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ea0c508c46ac995a1c5e4d678350fada}{%
+           family={Meidinger},
+           familyi={M\bibinitperiod},
+           given={Norbert},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=07a7411c31adcd24d72f7d0b1feb13ef}{%
+           family={Molendi},
+           familyi={M\bibinitperiod},
+           given={Silvano},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=178e6ee327eaf2bbe7ebd3a4b7824cb0}{%
+           family={Rau},
+           familyi={R\bibinitperiod},
+           given={Arne},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0e6ef39d4741d8413a0c25bb59746d2a}{%
+           family={Wilkins},
+           familyi={W\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=92575bcab7dc75c13b52f0aaae9bf640}{%
+           family={Wilms},
+           familyi={W\bibinitperiod},
+           given={Joern},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {The American Astronomical Society}%
+      }
+      \strng{namehash}{210c9b480bf4a5711e5d998e6d0d6abe}
+      \strng{fullhash}{705d0c752ba59e0a123a5a6b3264943f}
+      \strng{bibnamehash}{210c9b480bf4a5711e5d998e6d0d6abe}
+      \strng{authorbibnamehash}{210c9b480bf4a5711e5d998e6d0d6abe}
+      \strng{authornamehash}{210c9b480bf4a5711e5d998e6d0d6abe}
+      \strng{authorfullhash}{705d0c752ba59e0a123a5a6b3264943f}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The particle-induced background of X-ray observatories is produced by galactic cosmic ray (GCR) primary protons, electrons, and He ions. Events due to direct interaction with the detector are usually removed by onboard processing. The interactions of these primary particles with the detector environment produce secondary particles that mimic X-ray events from celestial sources, and are much more difficult to identify. The filter-wheel closed data from the XMM-Newton EPIC-pn camera in small window mode (SWM) contains both the X-ray-like background events, and the events due to direct interactions with the primary particles. From this data, we demonstrate that X-ray-like background events are spatially correlated with the primary particle interaction. This result can be used to further characterize and reduce the non-X-ray background in silicon-based X-ray detectors in current and future missions. We also show that spectrum and pattern fractions of secondary particle events are different from those produced by cosmic X-rays.}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{2}
+      \field{number}{1}
+      \field{title}{Characterization of the Particle-induced Background of XMM-Newton EPIC-pn: Short- and Long-term Variability}
+      \field{volume}{891}
+      \field{year}{2020}
+      \field{pages}{13}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3847/1538-4357/ab698a
+      \endverb
+      \verb{urlraw}
+      \verb https://dx.doi.org/10.3847/1538-4357/ab698a
+      \endverb
+      \verb{url}
+      \verb https://dx.doi.org/10.3847/1538-4357/ab698a
+      \endverb
+    \endentry
     \entry{Cavaliere_1971}{article}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=7bcf3dfca0fb55c6116be25153e38eaf}{%

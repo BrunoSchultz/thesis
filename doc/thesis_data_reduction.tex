@@ -4,4 +4,19 @@
 \chapter{Data Reduction}
 \label{sec:data_reduction}
 %==============================================================================
+In the following section, the underlying data shall be reduced and corrected for the various effects and contamination sources explained in Section \ref{sec:background}. Data from eRASSX for all TMs (1-7) is utilized from the eROSITA pipeline processing version c010. The galaxy group NGC1550 is located in skytile 065087. In addition, the surrounding skytiles 062084, 062087, 062090, 065084, 065090, 068084, 068087, 068090 are used to encompass regions up to \(\sim 3R_{200}\). The data reduction is performed with the software HEASoft version XXX and the extended Science Analysis Software System (eSASS 4DR1). Images were created using astropy.
+\section{Image creation and filtering}
+For each skytile, the \textit{eSASS} task \texttt{evtool} is employed with \texttt{pattern=15} to select single, double, triple, and quadruple event patterns, and \texttt{flag=0xc00fff30} to remove bad pixels and CCD corners. (Additionally, \texttt{gti="GTI"} is used to filter events based on good-time-intervals (GTIs) stored in the event list). Subsequently, soft proton flares are identified and mitigated through the following process: using the \texttt{flaregti} task, light curves are generated with \SI{20}{\second} time bins within the energy range of \SIrange{5}{10}{\kilo\electronvolt}. A \(3\sigma\) threshold is determined; time intervals exceeding this threshold indicate periods of elevated count rates likely caused by soft proton flares. \texttt{flaregti} is then rerun using this threshold to establish new GTIs excluding these flare periods, which are then applied using \texttt{evtool}. Finally, \texttt{evtool} combines the filtered skytiles. Exposure maps for each TM are also individually generated using the aforementioned GTIs.
+
+
+
+
+
+
+
+
+
+
+
+
 
