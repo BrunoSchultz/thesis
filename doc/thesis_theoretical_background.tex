@@ -33,3 +33,21 @@ For a thorough analysis of X-ray photons, it is essential to carefully consider 
 \paragraph*{Cosmic X-ray Background (CXB):} The Cosmic X-ray background comprises multiple sources, including diffuse, unabsorbed thermal emissions from the Local Hot Bubble, a plasma cavity surrounding the Sun, and absorbed thermal emissions from the Galactic halo (\cite{galeazzi2006xmm}). Additionally, it includes discrete extragalactic sources, predominantly unresolved AGNs  (\cite{brandt2005deep}). The diffuse component is more prominent in the lower energy band \(\sim\SI{1}{\kilo\electronvolt}\), while the extragalactic sources dominate at higher energies.
 \paragraph*{Non-X-ray Background (NXB):} The non-X-ray background consists of two main components: highly variable soft protons flares from the solar corona and Earth's magnetosphere, which can be focused onto detectors, and energetic Galactic Cosmic Ray (GCR) primaries, which interact with the detector to produce secondary particles. While primary GCR events can be mostly discarded by onboard processing, the secondary particles deposit charge in the detector, making it challenging to distinguish them from true X-ray events. (\cite{Bulbul_2020})
 \paragraph*{eROSITA light leak:} Shortly after the launch of eROSITA, it was observed that CCDs lacking an on-chip filter (TM9) recorded a notably higher number of events. This was attributed to optical and ultraviolet light from the Sun entering the CCD through an unidentified gap in the detector shielding and was subsequently termed \enquote{light-leak} (\cite{Predehl2021}). 
+
+{\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
+\centering
+  \sisetup{table-format=1.2e-1,table-number-alignment=center}
+\caption{Fit Parameters}
+\begin{tabular}{l S S S S}
+\toprule
+  Region &         1 &        2 &        3 &         4 \\
+\midrule
+ West & 2.38(28)e-5 & 5.47(24)e-1 & 1.11(14)e2 &  1.01(6)e-7 \\
+ East & 2.31(28)e-5 & 4.96(17)e-1 &  9.2(12)e1 &  1.05(6)e-7 \\
+North & 1.69(30)e-5 & 4.53(19)e-1 &  8.1(16)e1 & 8.08(91)e-8 \\
+South & 4.72(70)e-5 & 4.99(14)e-1 & 6.67(99)e1 & 9.53(60)e-8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+}
