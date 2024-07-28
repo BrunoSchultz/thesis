@@ -19,6 +19,44 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{Bertin1996}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=8189321883304f1fd1a7e70fff780456}{%
+           family={{Bertin}},
+           familyi={B\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=88294fecfc5603995a847d2a3429eaa9}{%
+           family={{Arnouts}},
+           familyi={A\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fdd6ca7c2df422d092f2b08f31171e0d}
+      \strng{fullhash}{fdd6ca7c2df422d092f2b08f31171e0d}
+      \strng{bibnamehash}{fdd6ca7c2df422d092f2b08f31171e0d}
+      \strng{authorbibnamehash}{fdd6ca7c2df422d092f2b08f31171e0d}
+      \strng{authornamehash}{fdd6ca7c2df422d092f2b08f31171e0d}
+      \strng{authorfullhash}{fdd6ca7c2df422d092f2b08f31171e0d}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{{SExtractor: Software for source extraction.}}
+      \field{volume}{117}
+      \field{year}{1996}
+      \field{pages}{393\bibrangedash 404}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1051/aas:1996164
+      \endverb
+      \keyw{METHODS: DATA ANALYSIS,TECHNIQUES: IMAGE PROCESSING,GALAXIES: PHOTOMETRY}
+    \endentry
     \entry{brandt2005deep}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=b92d3a6a7ddd6d05bc6e15998d428fc1}{%
@@ -260,6 +298,42 @@
       \verb https://doi.org/10.1038/231437a0
       \endverb
     \endentry
+    \entry{davis2001formal}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ca2f2dbcace2d6205c173db8073b8c28}{%
+           family={Davis},
+           familyi={D\bibinitperiod},
+           given={John\bibnamedelima E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Center for Space Research, Massachusetts Institute of Technology, Cambridge, MA 02139; davis@space.mit.edu}%
+      }
+      \list{publisher}{1}{%
+        {The American Astronomical Society}%
+      }
+      \strng{namehash}{ca2f2dbcace2d6205c173db8073b8c28}
+      \strng{fullhash}{ca2f2dbcace2d6205c173db8073b8c28}
+      \strng{bibnamehash}{ca2f2dbcace2d6205c173db8073b8c28}
+      \strng{authorbibnamehash}{ca2f2dbcace2d6205c173db8073b8c28}
+      \strng{authornamehash}{ca2f2dbcace2d6205c173db8073b8c28}
+      \strng{authorfullhash}{ca2f2dbcace2d6205c173db8073b8c28}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{2}
+      \field{note}{© 2001. All rights reserved. Printed in U.S.A.}
+      \field{title}{The Formal Underpinnings of the Response Functions Used in X-Ray Spectral Analysis}
+      \field{volume}{548}
+      \field{year}{2001}
+      \field{pages}{1010\bibrangedash 1019}
+      \range{pages}{10}
+    \endentry
     \entry{galeazzi2006xmm}{article}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=581efb96029e8a93280a929948581bd4}{%
@@ -302,6 +376,145 @@
       \field{journaltitle}{Department of Physics, University of Miami}
       \field{title}{XMM-Newton observations of the diffuse X-ray background}
       \field{year}{2006}
+    \endentry
+    \entry{HI4PI2016}{article}{}
+      \name{author}{19}{}{%
+        {{un=0,uniquepart=base,hash=04ab65fef2f5442b7ff3ee637593bc20}{%
+           family={{HI4PI Collaboration}},
+           familyi={H\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=36f5743df6239e27f01b446499b6b2cf}{%
+           family={Bekhti},
+           familyi={B\bibinitperiod},
+           given={N.\bibnamedelimi Ben},
+           giveni={N\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dfae7abd30be2f6b8237fa5ee328bbc0}{%
+           family={Flöer},
+           familyi={F\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f66e5ed25c0e3d81a2176b300080778a}{%
+           family={Keller},
+           familyi={K\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=55f6bf490ccb3a6fc3f068b1c6e599ac}{%
+           family={Winkel},
+           familyi={W\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eed55af90c952153d48ed031604bdec0}{%
+           family={Kalberla},
+           familyi={K\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8cd94abe973fc30f2f2c83e7a505d6bf}{%
+           family={Kerp},
+           familyi={K\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8a30df7716c6a4d477ad6c32e0f51bca}{%
+           family={Lenz},
+           familyi={L\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6d55763b1f2cf4b45393a9bb0944ce28}{%
+           family={Winkel},
+           familyi={W\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=62c85ab7c7e7466d69665e4d52bfc611}{%
+           family={Burton},
+           familyi={B\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=37e26d59afc90e505f00c9985f0181d8}{%
+           family={Bajaja},
+           familyi={B\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=58131529d6d3a29d6ce2819b2275207a}{%
+           family={Morales},
+           familyi={M\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c64506ddbfb020bc328c9a70e1244ce6}{%
+           family={Arnal},
+           familyi={A\bibinitperiod},
+           given={W.\bibnamedelimi P.},
+           giveni={W\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2085531af5d53f69759530ebd5826d8e}{%
+           family={Testori},
+           familyi={T\bibinitperiod},
+           given={J.\bibnamedelimi C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e50f085fed33c4d56663daa9407fc7e6}{%
+           family={Kalberla},
+           familyi={K\bibinitperiod},
+           given={P.\bibnamedelimi M.\bibnamedelimi W.},
+           giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4d402b4a9843a3a643a4f9a1878e987f}{%
+           family={Haud},
+           familyi={H\bibinitperiod},
+           given={U.},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=381a234160dead7910a1da1839f61645}{%
+           family={Dedes},
+           familyi={D\bibinitperiod},
+           given={L.\bibnamedelimi E.\bibnamedelimi H.},
+           giveni={L\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8b37f7dca0af3ea26d350f49f133d33b}{%
+           family={Rizzo},
+           familyi={R\bibinitperiod},
+           given={J.\bibnamedelimi J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a055224ac388b892b53e87a5f190b8db}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={A.\bibnamedelimi R.},
+           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6d244f4971b82a4e47a2cb5d934cce20}
+      \strng{fullhash}{eada22b729bd50ed0ce9d3b2e51b7619}
+      \strng{bibnamehash}{6d244f4971b82a4e47a2cb5d934cce20}
+      \strng{authorbibnamehash}{6d244f4971b82a4e47a2cb5d934cce20}
+      \strng{authornamehash}{6d244f4971b82a4e47a2cb5d934cce20}
+      \strng{authorfullhash}{eada22b729bd50ed0ce9d3b2e51b7619}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Astronomy \& Astrophysics}
+      \field{title}{{HI4PI: A full-sky H I survey based on EBHIS and GASS}}
+      \field{volume}{594}
+      \field{year}{2016}
+      \field{pages}{A116}
+      \range{pages}{-1}
+      \verb{urlraw}
+      \verb https://ui.adsabs.harvard.edu/abs/2016A&A...594A.116H
+      \endverb
+      \verb{url}
+      \verb https://ui.adsabs.harvard.edu/abs/2016A&A...594A.116H
+      \endverb
     \endentry
     \entry{Kolokythas_2020}{article}{}
       \name{author}{9}{}{%
@@ -448,6 +661,128 @@
       \verb https://www.annualreviews.org/doi/10.1146/annurev-astro-081811-125502
       \endverb
       \keyw{galaxy clusters,cosmology,dark matter,intracluster medium,structure formation}
+    \endentry
+    \entry{Pacaud2006}{article}{}
+      \name{author}{14}{}{%
+        {{un=0,uniquepart=base,hash=6a8215e6732ebef5a994c1b40c089c12}{%
+           family={Pacaud},
+           familyi={P\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9469715cb0d50a4b10aaed78cdd5d151}{%
+           family={Pierre},
+           familyi={P\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a6adfbfdcc4ce6922a2e7c220b329edd}{%
+           family={Refregier},
+           familyi={R\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1830a4e521f922be15bfd0f24a2d7ae4}{%
+           family={Gueguen},
+           familyi={G\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=291803581df0c8af8c9f040e489104a8}{%
+           family={Starck},
+           familyi={S\bibinitperiod},
+           given={J.-L.},
+           giveni={J\bibinithyphendelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1c3d80a15c45a817c786d8e1d02956e2}{%
+           family={Valtchanov},
+           familyi={V\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=46d4cfe8d7ad0f5ea194a6f0b4f3b1b7}{%
+           family={Read},
+           familyi={R\bibinitperiod},
+           given={A.\bibnamedelimi M.},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=37d83b324b4fc4c5355589a43a15ae85}{%
+           family={Altieri},
+           familyi={A\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d77b44ee47ddc79df268d480626d2f5b}{%
+           family={Chiappetti},
+           familyi={C\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9975c774e81f9ea5504a2ce7a2ea84dc}{%
+           family={Gandhi},
+           familyi={G\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=29b6abae34efb13fe51c311608baa06e}{%
+           family={Garcet},
+           familyi={G\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6da6680849c1af892b70bedcc9639d9c}{%
+           family={Gosset},
+           familyi={G\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2642bf5bf073802324eaa7d22f8fa129}{%
+           family={Ponman},
+           familyi={P\bibinitperiod},
+           given={T.\bibnamedelimi J.},
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b9d28bd96a6b2bcc586e4ad5a2043fcd}{%
+           family={Surdej},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1b22130e8f99d0d8f790616045cbb2d3}
+      \strng{fullhash}{9cda715b2fc3ce6af5762755931f79fc}
+      \strng{bibnamehash}{1b22130e8f99d0d8f790616045cbb2d3}
+      \strng{authorbibnamehash}{1b22130e8f99d0d8f790616045cbb2d3}
+      \strng{authornamehash}{1b22130e8f99d0d8f790616045cbb2d3}
+      \strng{authorfullhash}{9cda715b2fc3ce6af5762755931f79fc}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{We present the X-ray pipeline developed for the purpose of the cluster search in the XMM Large-Scale Structure (XMM-LSS) survey. It is based on a two-stage procedure via a dedicated handling of the Poisson nature of the signal: (i) source detection on multiresolution wavelet filtered images and (ii) source analysis by means of a maximum likelihood fit to the photon images. The source detection efficiency and characterization are studied through extensive Monte Carlo simulations. This led us to define two samples of extended sources: the C1 class that is uncontaminated, and the less restrictive C2 class that allows for 50 per cent contamination. The resulting predicted selection function is presented and the comparison to the current XMM-LSS confirmed cluster sample shows very good agreement. We arrive at average predicted source densities of about seven C1 and 12 C2 per deg2, which is higher than any available wide field X-ray survey. We finally note a substantial deviation of the predicted redshift distribution for our samples from the one obtained using the usual assumption of a flux-limited sample.}}
+      \field{issn}{0035-8711}
+      \field{journaltitle}{Monthly Notices of the Royal Astronomical Society}
+      \field{month}{09}
+      \field{number}{2}
+      \field{title}{{The XMM Large-Scale Structure survey: the X-ray pipeline and survey selection function}}
+      \field{volume}{372}
+      \field{year}{2006}
+      \field{pages}{578\bibrangedash 590}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1111/j.1365-2966.2006.10881.x
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/mnras/article-pdf/372/2/578/2937517/mnras0372-0578.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1111/j.1365-2966.2006.10881.x
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1111/j.1365-2966.2006.10881.x
+      \endverb
     \endentry
     \entry{Predehl2021}{article}{}
       \name{author}{93}{}{%
@@ -1375,6 +1710,136 @@
       \field{year}{2006}
       \verb{doi}
       \verb 10.1007/978-3-642-54083-7
+      \endverb
+    \endentry
+    \entry{Stark1998}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=475ea821e257f1959b67384e9b0a20cc}{%
+           family={{Starck, J.-L.}},
+           familyi={S\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=c9d294efeab975f6883bea93d4a71b69}{%
+           family={{Pierre, M.}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{f27f2a17c53e3edf33d8c62644503294}
+      \strng{fullhash}{f27f2a17c53e3edf33d8c62644503294}
+      \strng{bibnamehash}{f27f2a17c53e3edf33d8c62644503294}
+      \strng{authorbibnamehash}{f27f2a17c53e3edf33d8c62644503294}
+      \strng{authornamehash}{f27f2a17c53e3edf33d8c62644503294}
+      \strng{authorfullhash}{f27f2a17c53e3edf33d8c62644503294}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Astron. Astrophys. Suppl. Ser.}
+      \field{number}{2}
+      \field{title}{Structure detection in low intensity X-ray images}
+      \field{volume}{128}
+      \field{year}{1998}
+      \field{pages}{397\bibrangedash 407}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1051/aas:1998150
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1051/aas:1998150
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1051/aas:1998150
+      \endverb
+    \endentry
+    \entry{veronica2020}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4cab77b1b2f92a41ba3286dbe4135788}{%
+           family={Veronica},
+           familyi={V\bibinitperiod},
+           given={Angie},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Argelander-Institut für Astronomie, Mathematisch-Naturwissenschaftliche Fakultät der Rheinischen Friedrich-Wilhelms-Universität Bonn}%
+      }
+      \list{location}{1}{%
+        {Bonn}%
+      }
+      \strng{namehash}{4cab77b1b2f92a41ba3286dbe4135788}
+      \strng{fullhash}{4cab77b1b2f92a41ba3286dbe4135788}
+      \strng{bibnamehash}{4cab77b1b2f92a41ba3286dbe4135788}
+      \strng{authorbibnamehash}{4cab77b1b2f92a41ba3286dbe4135788}
+      \strng{authornamehash}{4cab77b1b2f92a41ba3286dbe4135788}
+      \strng{authorfullhash}{4cab77b1b2f92a41ba3286dbe4135788}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Masterthesis in Astrophysics}
+      \field{title}{X-ray Studies of the Interacting Galaxy Cluster System Abell 3391 and Abell 3395 Using eROSITA and XMM-Newton}
+      \field{type}{mathesis}
+      \field{year}{2020}
+    \endentry
+    \entry{Willingale2013}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=4e6727b27ecd8ee240765e27f430ce1c}{%
+           family={{Willingale}},
+           familyi={W\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a10f1fbb8d544539f27a6c95b67b4919}{%
+           family={{Starling}},
+           familyi={S\bibinitperiod},
+           given={R.\bibnamedelimi L.\bibnamedelimi C.},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=faac3510495983294c08e4af805d5b80}{%
+           family={{Beardmore}},
+           familyi={B\bibinitperiod},
+           given={A.\bibnamedelimi P.},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a25ee71e9f493e368cf3a01855f0c09a}{%
+           family={{Tanvir}},
+           familyi={T\bibinitperiod},
+           given={N.\bibnamedelimi R.},
+           giveni={N\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=91845407b2d38d934d5e89356d5284cc}{%
+           family={{O'Brien}},
+           familyi={O\bibinitperiod},
+           given={P.\bibnamedelimi T.},
+           giveni={P\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8b871ac4ff50d4f73cff22f2aca8bde4}
+      \strng{fullhash}{396f418860fe7c1116df17e4c99fea6a}
+      \strng{bibnamehash}{396f418860fe7c1116df17e4c99fea6a}
+      \strng{authorbibnamehash}{396f418860fe7c1116df17e4c99fea6a}
+      \strng{authornamehash}{8b871ac4ff50d4f73cff22f2aca8bde4}
+      \strng{authorfullhash}{396f418860fe7c1116df17e4c99fea6a}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{astro-ph.HE}
+      \field{eprinttype}{arXiv}
+      \field{number}{1}
+      \field{title}{{Calibration of X-ray absorption in our Galaxy}}
+      \field{volume}{431}
+      \field{year}{2013}
+      \field{pages}{394\bibrangedash 404}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1093/mnras/stt175
+      \endverb
+      \verb{eprint}
+      \verb 1303.0843
       \endverb
     \endentry
   \enddatalist

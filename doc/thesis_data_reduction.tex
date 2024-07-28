@@ -43,18 +43,63 @@ Subtracting the particle-induced background (PIB) from the combined filtered pho
     \text{PIB map}_\text{TM} = H_\text{obs}R\cdot\bigl(\text{norm. exposure map}\bigr)
 \end{align*}
 PIB corrected image are obtained by subtracting the PIB map of each TM from the respective filtered photon image. The complete image for TM0 is obtain by co-adding all PIB corrected images. Furthermore, individual background maps are also co-added to form a complete PIB map, which can be found in Appendix \ref{sec:appendix_a_pib_map}. Figure \ref{fig:comparison_of_spf_and_filtered} compares the TM0 filtered image before and after PIB correction.
+%
+\section{Absorption Correction}
+As discussed in Section \ref{sec:background}, X-ray absorption by the ISM must be considered. The methodology outlined in \cite{Willingale2013} is followed. Additionally, scripts for the absorption correction were provided by Angie Veronica (\cite{veronica2020}). At higher energies (\(\gtrsim \SI{0.2}{\kilo\electronvolt}\)), as is relevant for this analysis, absorption from metals play a significant role. 
+Assuming solar metallicity, the hydrogen column density \(N_\text{H}\) can used to trace the absorbing material. A cutout of the HI4PI all-sky survey (\cite{HI4PI2016}) is reprojected onto relevant sky tiles to create a neutral atomic hydrogen map (\(N_{\text{HI}}\)map) . Additionally, a molecular hydrogen map (\(N_{\text{H}_2}\)-map) is constructed by dividing the full sky image into \(52 \times 52\) pixel cells, querying \(N_{\text{H}_2}\) values from the Swift homepage\footnote{https://www.swift.ac.uk/analysis/nhtot/index.php (Last accessed: 25.07.2024)}, and distributing these values across each cell. The total \(N_{\text{Htot}}\)-map, constructed by \(N_{\text{Htot}} = N_{\text{H}} + 2N_{\text{H}_2}\), is shown in Appendix B, with \(N_{\text{H}}\) ranging from \(N_\text{Htot, min} = \SI{2.91e+20}{{\centi\meter}^{-2}}\) to \(N_\text{Htot, max} = \SI{1.61e+21}{{\centi\meter}^{-2}}\).
+Next, for a each individual \(N_{\text{H}}\)-value in the \(N_{\text{Htot}}\)-map, the expected soft band count rates for TM1 and TM5 are simulated for the model
+\begin{align*}
+    \text{apec}_{\text{LHB}} + \text{ph}_\text{abs.}\cdot(\text{apec}_{\text{MWH}} + \text{pow}).
+\end{align*}
+using XSPEC\footnote{https://heasarc.gsfc.nasa.gov/xanadu/xspec/ (Last accessed: 25.07.2024)} with the \texttt{fakeit} command and their respective area (ARF) and response files (RMF). Here, \(\text{apec}_{\text{LHB}}\) represents unabsorbed Local Hot Bubble emission, \(\text{ph}_\text{abs.}\) the absorption along the line of sight, \(\text{apec}_{\text{MWH}}\) the absorbed Milky Way Halo emission, and \(\text{pow}\) the absorbed emission from unresolved point sources (e.g., AGNs). 
+
+A correction factor \(A_{\text{corr}}\) is determined for each value of \(N_\text{H}\) by dividing the simulated count rate for the \(N_{\text{H}}^{\text{tot}}\)-map median \(\bigl(\overline{N_{\text{Htot}}}\bigr)\) by the simulated count rate of the \(N_{\text{H}}\) of interest, hence
+\begin{align*}
+    A_{\text{corr}}(N_\text{H}) = \frac{\text{simulated count rate}\bigl(\overline{N_{\text{Htot}}}\bigr)}{\text{simulated count rate}\bigl(N_\text{H}\bigr)}.
+\end{align*}
+Finally, each \(N_\text{H}\) in the \(N_\text{Htot}\)-map is replaced by the correspoding correction factor \(A_\text{corr}\) to create an absorption correction map. Absorption correction maps are created for both TM1 and TM5, which serve as proxies for TM8 and TM9, respectively, due to their similar response files, and will be utilized in the subsequent steps.
+\section{Exposure Correction}
+The counts image of any given X-ray observation inherently depends on a detector's effective area and the telescope's pointing motion throughout the observation. To obtain meaningfull flux units (e.g. \(\text{cts}\cdot\text{arcsecond}^{-2}\text{s}^{-1}\)), these effects must be considered. This is achieved by dividing the count image by an exposure map, thereby rescalling all segments of the count image to the same relative exposure \cite{davis2001formal}. However, an exposure map must be created separately for TM8 and TM9 due to three reasons: first, TM9 uses a narrow energy band, which lowers its expected count rate; second, this narrower energy band necessitates a different absorption correction map; third, TM8 and TM9 have very distinct response files because of their different filter configurations. Thus, both exposure maps cannot simply be combined but must be corrected for these effects. The procedure outlined in \cite{Reiprich2021} will be followed. First, the exposure map of TM8 and TM9 are divided by their respective absorption correction maps to obtain an absorption-corrected exposure map (\(\text{exmap}_\text{TM8, corr}\), \(\text{exmap}_\text{TM9, corr}\)). Second, the ration of PIB-corrected count rates of TM8 and TM9 is used to define a correction factor 
+\begin{align*}
+    E_\text{corr} = \frac{\text{PIB corr. count rate(TM9)}}{\text{PIB corr. count rate(TM9)}}
+\end{align*}
+The total absorption-corrected exposure map for TM0 is then given by
+\begin{align*}
+    \text{exmap}_\text{TM0, corr} = \text{exmap}_\text{TM8, corr} + E_\text{corr}\cdot\text{exmap}_\text{TM9, corr} 
+\end{align*}
+Dividing the PIB-corrected TM0 image by the complete absorption-corrected exposure map leads to the final filtered, PIB-corrected, absorption-corrected, exposure-corrected image.
+\section{Wavelet filtering and Point Source Removal}
+It is necessary to remove the emission from point-like sources (e.g. AGNs) to prevent interference with the cluster emission under study. This is achieved using the wavelet filtering pipeline as described in \cite{Pacaud2006}. Wavelet transformation decomposes an image \(I(x, y)\) into coefficients \((w_1, \ldots, w_n, c_n)\)
+\begin{align*}
+I(x, y) = c_n(x, y) + \sum_{j=1}^{n}w_j(x, y).    
+\end{align*}
+Here, \(c_n(x, y)\) is the smoothed image, and \(w_j(x, y)\) represents the contribution of a wavelet function at a scale \(j\) and position \((x, y)\) to the total image. By retaining only the coefficients that satisfy
+\begin{align*}
+|w_j(x, y)| > k\sigma_j,
+\end{align*}
+where \(\sigma_j\) is the standard deviation at scale \(j\) and \(k\) is a clipping factor, and then applying the inverse wavelet transformation, an image is obtained that includes only significant scales, i.e. those not due to noise (\cite{Stark1998}). The resultant image is referred to as a wavelet-filtered image. In the pipeline being used, the absorption-corrected exposure map, \(\text{exmap}_\text{TM0, corr}\), and the raw photon image are used to account for previous data reduction and to statistically handle the Poisson noise. After wavelet filtering, a source catalogue is obtained running \texttt{SExtractor} (\cite{Bertin1996}). This is enabled by the significant noise reduction and smoothed background achieved by wavelet filtering. The extended source around the center of NGC1550 is manually removed from the catalogd. A cheese mask is then created from this source catalog and applied to \(\text{exmap}_\text{TM0, corr}\). The unrelated emission around IC366 is also manually added it to the cheese-mask. Rerunning the wavelet filtering with the cheese-masked exposure map reduces ringing artifacts in the wavelet-filtered image, which are typically caused near discontinuities (steep flux gradients due to bright point-like sources). Figure \ref{fig:comparison_wvl_filtered}compares the wavelet filtering before and after application of the cheese-mask to the exposure map.
+%
 \begin{figure}[htbp]
     \centering
-    \includegraphics{data_reduction/comparison_SPF_filt_PIB_corr_0.pdf}
-    \caption{Photon images of NGC1550 in the soft band with Gaussian smoothing of \(4\) pixels. Left: SPF-filtered and cleaned image. Right: image after PIB correction. The colorbar represents smoothed counts, same scalling is used for comparison.}
-    \label{fig:comparison_of_spf_and_filtered}
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{data_reduction/wlt_filtered.pdf}
+        \caption{Before cheese-mask}
+        \label{fig:wlt_filtered}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{data_reduction/wlt_filtered_cheesed.pdf}
+        \caption{After cheese-mask}
+        \label{fig:wvl_filtered_cheesed}
+    \end{subfigure}
+    \caption{Corrected wavelet filtered image before (left) and after (right) applying the cheesemask created with \texttt{SExtractor}. The left image is normalized such that the ringing artifacts are most prominent. The cheese-masked imaged has significantly reduced ringing artifacts.}
+    \label{fig:comparison_wvl_filtered}
 \end{figure}
-\section{\(N_\text{H}\) Absorption Correction}
-As discussed in Section \ref{sec:background}, X-ray absorption by the ISM must be considered. At higher energies (\(\gtrsim \SI{0.28}{\kilo\electronvolt}\)), as is relevant for this analyis, metals from stellar processes play a significant role. Assuming solar metallicity, the hydrogen column density along the line of sight can serve as an indicator of the amount of absorbing material. This involves utilizing the total hydrogen column density, including all its states neutral, molecular, or ionized. A cutout of the HI4PI all sky survey is therefore reprojected on to the relevant skytiles.  
 
 
 
 
 
-
-
+.

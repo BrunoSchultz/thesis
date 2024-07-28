@@ -105,6 +105,99 @@ def plot_side_by_side(pc1, pc2, norm='lin', vmin=0, vmax=1, dpi=480, compress=Fa
     return fig, axes
 
 
+def plot_side_by_side_with_individual_cbars(pc1, pc2, norm='lin', vmin1=0, vmax1=1, vmin2=0, vmax2=1, dpi=480, compress=False, grid=True, axis_label=True, cbar=True, savefig=False, axislabel_size=10, tick_label_size=9, cbar_labelsize=9, axis_ticks=True, figsize=(5, 3)):
+    """
+    Plot two PrimCompanion objects side by side with a shared y-axis and a common x-axis label, each with an individual colorbar.
+
+    Parameters:
+    - pc1, pc2 (PrimCompanion): PrimCompanion objects to plot.
+    - norm (str): Normalization method for the image data. Accepted values are 'linear' or 'lin' for linear normalization, 'log' for logarithmic normalization, and 'log2' for symmetric logarithmic normalization.
+    - vmin1, vmax1 (float): Minimum and maximum value for the color scale of the first plot.
+    - vmin2, vmax2 (float): Minimum and maximum value for the color scale of the second plot.
+    - dpi (int, optional): Dots per inch of the figure. Default is 480.
+    - compress (bool, optional): If True, compress the image by plotting only every n-th pixel. Default is False.
+    - grid (bool, optional): If True, display a grid on the plot. Default is True.
+    - axis_label (bool, optional): If True, display axis labels. Default is True.
+    - cbar (bool, optional): If True, display color bar. Default is True.
+    - savefig (str or bool, optional): If a string is provided, save the figure to the specified path. Default is False.
+    - axislabel_size (int, optional): Size of the axis labels. Default is 10.
+    - tick_label_size (int, optional): Size of the tick labels. Default is 9.
+    - cbar_labelsize (int, optional): Size of the color bar labels. Default is 9.
+    - axis_ticks (bool, optional): If True, display axis ticks. Default is True.
+    - figsize (tuple, optional): Size of the figure. Default is (5, 3).
+
+    Returns:
+    - fig (matplotlib.figure.Figure): The generated figure.
+    - axes (list of matplotlib.axes.Axes): The axes objects.
+    """
+    if compress:
+        n = 10
+        data1 = pc1.data[::n, ::n]
+        wcs1 = pc1.wcs[::n, ::n]
+        data2 = pc2.data[::n, ::n]
+        wcs2 = pc2.wcs[::n, ::n]
+    else:
+        data1 = pc1.data
+        wcs1 = pc1.wcs
+        data2 = pc2.data
+        wcs2 = pc2.wcs
+
+    if norm in ['linear', 'lin']:
+        norm1 = Normalize(vmin=vmin1, vmax=vmax1, clip=True)
+        norm2 = Normalize(vmin=vmin2, vmax=vmax2, clip=True)
+    elif norm in ['log', 'log10']:
+        norm1 = LogNorm(vmin=vmin1, vmax=vmax1, clip=True)
+        norm2 = LogNorm(vmin=vmin2, vmax=vmax2, clip=True)
+    elif norm == 'log2':
+        norm1 = SymLogNorm(linthresh=vmin1, vmin=vmin1, vmax=vmax1, clip=True, base=2)
+        norm2 = SymLogNorm(linthresh=vmin2, vmin=vmin2, vmax=vmax2, clip=True, base=2)
+    else:
+        raise ValueError('Invalid normalization method.')
+
+    fig, axes = plt.subplots(1, 2, dpi=dpi, figsize=figsize, subplot_kw={'projection': wcs1}, sharey=True, layout='constrained')
+
+    im1 = axes[0].imshow(data1, cmap='magma', norm=norm1, origin='lower', aspect='equal')
+    im2 = axes[1].imshow(data2, cmap='magma', norm=norm2, origin='lower', aspect='equal')
+
+    # Configure axes
+    for i, ax in enumerate(axes):
+        ra, dec = ax.coords[0], ax.coords[1]
+        ra.set_axislabel(" ")
+        dec.set_axislabel(" ")
+
+        if axis_ticks:
+            ra.tick_params(direction='in', color='lightgrey')
+            dec.tick_params(direction='in', color='lightgrey')
+
+            ra.display_minor_ticks(True)
+            dec.display_minor_ticks(True)
+
+            ra.set_ticklabel(size=tick_label_size)
+            if i == 0:
+                dec.set_ticklabel(size=tick_label_size)
+            else:
+                dec.set_ticklabel_visible(False)
+
+        if axis_label and i == 0:
+            dec.set_axislabel('Declination', size=axislabel_size, minpad=.7)
+        if grid:
+            ax.grid(alpha=.3, color='white', linestyle='dotted')
+
+    if axis_label:
+        fig.supxlabel('Right Ascension', size=axislabel_size, y=0.001, x=.45)
+
+    if cbar:
+        cbar1 = fig.colorbar(im1, ax=axes[0], orientation='vertical', fraction=0.046, pad=0.04)
+        cbar1.ax.tick_params(which='both', labelsize=cbar_labelsize, color='lightgrey')
+        cbar2 = fig.colorbar(im2, ax=axes[1], orientation='vertical', fraction=0.046, pad=0.04)
+        cbar2.ax.tick_params(which='both', labelsize=cbar_labelsize, color='lightgrey')
+
+    if savefig:
+        fig.savefig(savefig, dpi=fig.dpi, figsize=figsize, layout='constrained')
+
+    return fig, axes
+
+
 # WIP
 class MyHDUList(fits.HDUList):
     '''
@@ -121,6 +214,7 @@ class MyHDUList(fits.HDUList):
             self._hdul = hdul
         else:
             raise ValueError("Either file_path or hdul must be provided.")
+
 
 
 class BinCompanion(fits.BinTableHDU):
