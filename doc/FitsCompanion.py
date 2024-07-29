@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from matplotlib.colors import Normalize, LogNorm, SymLogNorm
+from matplotlib.colors import Normalize, LogNorm, SymLogNorm, BoundaryNorm
 
 import numpy as np
 
@@ -9,6 +9,7 @@ from astropy.convolution import convolve, Gaussian2DKernel
 from astropy.coordinates import Angle, SkyCoord
 from astropy import units as u
 from astropy.nddata import Cutout2D
+from matplotlib.ticker import MaxNLocator
 from astropy.table import Table
 
 import scienceplots
@@ -515,7 +516,9 @@ class PrimCompanion(fits.PrimaryHDU):
         elif norm in ['log', 'log10']:
             norm = LogNorm(vmin=vmin, vmax=vmax, clip=True)
         elif norm == 'log2':
-            norm = SymLogNorm(linthresh=vmin, vmin=vmin, vmax=vmax, clip=True, base=2)
+            norm = SymLogNorm(linthresh=1e-8, vmin=vmin, vmax=vmax, clip=True, base=2)
+        elif norm == 'SymLog':
+            norm = SymLogNorm(linthresh=1e-4, vmin=vmin, vmax=vmax, clip=True, base=10)
         else:
             raise ValueError('Invalid normalization method.')
 
@@ -576,11 +579,136 @@ class PrimCompanion(fits.PrimaryHDU):
 
         return fig, ax
 
+
+    def contour_plot(self, norm='lin', levels=10, bin_edges=None, vmin=None, vmax=None, dpi=480, compress=False, grid=True, axis_label=True, cbar=True, regions=True, savefig=False, axislabel_size=10, tick_label_size=9, cbar_labelsize=9, axis_ticks=True, figsize=(5, 3)):
+        """
+        Create a contour plot of the data with customizable bin sizes.
+
+        Parameters:
+        - norm (str): Normalization method for the image data. Accepted values are 'linear' or 'lin' for linear normalization, and 'log' for logarithmic normalization.
+        - levels (int or list): Number of contour levels or a list of levels.
+        - bin_edges (list): List of bin edges for color binning.
+        - vmin (float, optional): Minimum value for the color scale.
+        - vmax (float, optional): Maximum value for the color scale.
+        - dpi (int, optional): Dots per inch of the figure. Default is 480.
+        - compress (bool, optional): If True, compress the image by plotting only every n-th pixel. Default is False.
+        - grid (bool, optional): If True, display a grid on the plot. Default is True.
+        - axis_label (bool, optional): If True, display axis labels. Default is True.
+        - cbar (bool, optional): If True, display color bar. Default is True.
+        - regions (bool, optional): If True, display regions. Default is True.
+        - savefig (bool or str, optional): If True, save the figure to a file. If str, use it as the file name.
+        - axislabel_size (int, optional): Size of the axis labels. Default is 10.
+        - tick_label_size (int, optional): Size of the tick labels. Default is 9.
+        - cbar_labelsize (int, optional): Size of the color bar tick labels. Default is 9.
+        - axis_ticks (bool, optional): If True, display axis ticks. Default is True.
+        - figsize (tuple, optional): Size of the figure. Default is (5, 3).
+
+        Returns:
+        - fig (matplotlib.figure.Figure): The generated figure.
+        - ax (matplotlib.axes.Axes): The axes object.
+        """
+        if compress:
+            n = 10
+            image_data = self.data[::n, ::n]
+            wcs = self._wcs[::n, ::n]
+        else:
+            image_data = self.data
+            wcs = self._wcs
+
+        # Determine vmin and vmax if not provided
+        if vmin is None:
+            vmin = np.nanmin(image_data)
+        if vmax is None:
+            vmax = np.nanmax(image_data)
+
+        # Handle bin edges
+        if bin_edges is None:
+            if isinstance(levels, int):
+                if norm in ['linear', 'lin']:
+                    bin_edges = np.linspace(vmin, vmax, levels)
+                elif norm in ['log', 'log10']:
+                    bin_edges = np.logspace(np.log10(vmin), np.log10(vmax), levels)
+                else:
+                    raise ValueError('Invalid normalization method.')
+            else:
+                bin_edges = levels
+
+        if norm in ['linear', 'lin']:
+            norm = Normalize(vmin=vmin, vmax=vmax, clip=True)
+        elif norm in ['log', 'log10']:
+            norm = LogNorm(vmin=vmin, vmax=vmax, clip=True)
+        elif norm == 'log2':
+            norm = SymLogNorm(linthresh=1e-8, vmin=vmin, vmax=vmax, clip=True, base=2)
+        elif norm == 'SymLog':
+            norm = SymLogNorm(linthresh=1e-9, vmin=vmin, vmax=vmax, clip=True, base=10)
+        else:
+            raise ValueError('Invalid normalization method.')
+
+        # Create a custom colormap
+        cmap = plt.get_cmap('magma')
+        cmap.set_under('gray')  # Set color for values below vmin (which we will use for 0)
+
+        fig = plt.figure(dpi=dpi, tight_layout=True, figsize=figsize)
+        ax = fig.add_subplot(111, projection=wcs)
+        ax.set_box_aspect(1)
+
+        cs = ax.contourf(image_data, levels=bin_edges, cmap=cmap, origin='lower', extend='both')
+
+        ra, dec = ax.coords[0], ax.coords[1]
+        ra.set_axislabel(" ")
+        dec.set_axislabel(" ")
+
+        if axis_ticks:
+            ra.tick_params(direction='in', color='lightgrey')
+            dec.tick_params(direction='in', color='lightgrey')
+
+            ra.display_minor_ticks(True)
+            dec.display_minor_ticks(True)
+
+            ra.set_ticklabel(size=tick_label_size)
+            dec.set_ticklabel(size=tick_label_size)
+
+        if axis_label:
+            ra.set_axislabel('Right Ascension', size=axislabel_size, minpad=.7)
+            dec.set_axislabel('Declination', size=axislabel_size, minpad=.7)
+
+            if grid:
+                ax.grid(alpha=.3, color='white', linestyle='dotted')
+
+        if cbar:
+            fig_cbar = fig.colorbar(cs, ax=ax, pad=0.01, spacing='uniform')
+            fig_cbar.ax.tick_params(which='major', labelsize=cbar_labelsize, color='lightgrey')
+            fig_cbar.ax.tick_params(which='minor', size=0)
+            # Disable minor ticks on colorbar
+            fig_cbar.ax.yaxis.set_minor_locator(MaxNLocator(integer=True, prune='both'))
+            # fig_cbar.ax.yaxis.set_major_locator(MaxNLocator(integer=True)
+
+
+        if regions:
+            if isinstance(regions, list):
+                plot_regions = {label: self.regions[label] for label in regions if label in self.regions}
+            else:
+                plot_regions = self.regions
+
+            for label, region in plot_regions.items():
+                if isinstance(region, PixelRegion):
+                    pixel_region = region
+                elif isinstance(region, SkyRegion):
+                    pixel_region = region.to_pixel(self._wcs)
+
+                if hasattr(pixel_region, 'text'):
+                    pixel_region.plot(ax=ax, color='white')
+                else:
+                    pixel_region.plot(ax=ax, edgecolor='white', linewidth=1, linestyle='dotted')
+
+        if savefig:
+            fig.savefig(savefig, dpi=dpi, figsize=figsize)
+
+        return fig, ax
+
+    
     
     
 
-
-
-    
 
 
