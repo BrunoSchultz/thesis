@@ -4,23 +4,30 @@
 \chapter{Data Analysis}
 \label{sec:data_analysis}
 %==============================================================================
-\section{Image Inspection}
+\section{Image Inspection and galaxy distribution}\label{sec:image_inspection}
 %
-For a clearer visualization of the emission structures, a contour plot of the corrected wavelet-filtered image is presented (Figure \ref{fig:contour_wvl_filtered}). The group exhibits a spherically symmetrical appearance, with a distinct emission boundary clearly visible at \(R_{500}\). Furthermore, emission beyond \(R_{500}\) and \(R_{200}\) is difficult to distinguish from the complex background. A noticeable asymmetry is observed in the background emission, with a drop-off to the north compared to the south. 
+A contour plot of the corrected and cheese-masked wavelet-filtered image is shown in Figure \ref{fig:contour_wvl_filtered} to visualize emission beyond \(R_{500}\) more clearly. Furthermore, galaxy distribution using data from NASA/IPAC Extragalactic Database (NED) is extracted within a \(\SI{1}{\degree}\) radius of the galaxy group NGC 1550 and overlayed. There are 26 galaxies with similar redshifts \(0.01 \leq z \leq 0.015\) including the galaxy NGC 1550 itself. From Figure \ref{fig:contour_wvl_filtered} it is clear that the group appears spherically symmetrical and relaxed, with a distinct emission cutoff visible at \(R_{500}\). Beyond this radius, emission becomes difficult to distinguish from the background. There is a noticeable gradient in the background emission, with a slightly lower background to the north compared to the south. The galaxy distribution is loosely clustered to the northeast, but no clear correlation with the X-ray contours is observed. Usually, this helps indicate whether excess emission along a certain direction is significant.
+
+To highlight emission structures within \(R_{500}\), Figure \ref{fig:contour_fully_corrected} presents a contour plot of the fully corrected image smoothed with a Gaussian kernel of \(8\) pixels. Within this radius, some deviations from perfect azimuthal symmetry are noticeable. A slight east-west elongation within approximately \(390''\) (inner circle in the figure) can indeed be inferred as mentioned in Section{sec:ngc1550}. Beyond \(390''\), features are harder to distinguish: the emission in the north, south and east appear slightly more irregular, while the emission in the west, falls more uniformly and seems slightly lower. However, it should be noted that these features are not very pronounced, even qualitatively.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{data_analysis/wvl_filtered_contour.pdf}
-    \caption{
-        Contour plot of the corrected wavelet-filtered image. The colorbar represents counts per second. A distinct emission cut is visible at \(R_{500}\), while the emission beyond \(R_{500}\) is diffcult to discern from the background.}
+    \includegraphics{data_analysis/countour_plot_corr_R500.pdf}
+    \caption{Contour plot of the fully corrected 8 pixel Gaussian smoothed image. The color bar indicates counts per second. Some deviations from azimuthal symmetry are observed within the outer circle (\(\sim 810''\)). The inner circle denotes a radius of \(\sim 390''\). Within this region, an east-west elongation of the core is noticeable. The four wedges labeled north, south, east, and west correspond to the angular (but not radial) ranges used to extract surface brightness.}
+    \label{fig:contour_fully_corrected}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{data_analysis/galaxy_distribution.pdf}
+    \caption{Contour plot of the corrected, cheese-masked, wavelet-filtered image with overlaid galaxy distribution (red crosses) within a \(\SI{1}{\degree}\) radius of NGC 1550. The color bar represents counts per second. The plot shows a distinct emission boundary at \(R_{500}\), with emission beyond this radius becoming difficult to distinguish from the background. The galaxy distribution is loosely clustered to the northeast, though no clear correlation with the X-ray contours is observed.}
     \label{fig:contour_wvl_filtered}
 \end{figure}
-\section{Surface Brightness Analysis}
-\subsection{Full Azimuthal Surface Brightness}
-To more accurately identify or exclude potential deviations from spherical symmetry, surface brightness analysis will be performed. First, the emission center is estimated by constructing a \(2'\) aperture around the apparent center, as given in Section X. This aperture size is chosen to capture a statistically significant number of photons without leaving the group center. The flux-weighted average of the image coordinates within this aperture yields a right ascension of \SI{64.909}{\degree} and a declination of \SI{2.414}{\degree}. Concentric Anulli of \(1'\) width are constructed from the calculated flux-weighted surface brightness of the group up to to an angular distance of \(80' \sim 1.5R_{200}\). The counts \(C\) within each annulus are determined using the \texttt{funcnts} task from the \texttt{funtools} software, with a Poisson error of \(\sqrt{C}\). The surface brightness \(S\) for each annulus is calculated by
+\section{Full Azimuthal Surface Brightness Profile}\label{sec:full_az}
+To more accurately identify or exclude potential deviations from spherical symmetry, surface brightness (SB) analysis will be performed. First, the emission center is estimated by constructing a \(2'\) aperture around the apparent center, as given in Section X. This aperture size is chosen to capture a statistically significant number of photons without leaving the group center. The flux-weighted average coordinates of the fully corrected image within this aperture yields a right ascension of \SI{64.909}{\degree} and a declination of \SI{2.414}{\degree} and shall be referred to as the SB-center. Concentric anulli of \(1'\) width are constructed from the SB-center up to to an angular distance of \(80' \sim 1.5R_{200}\). The counts \(C\) within each annulus are determined using the \texttt{funcnts} task from the \texttt{funtools} software, with a Poisson error of \(\sqrt{C}\). The surface brightness \(S\) for each annulus is calculated by
 \begin{align*}
-    S = \frac{C_\text{image} - C_\text{PIB}}{C_\text{expmap}\cdot A},
+    S = \frac{C_\text{filt} - C_\text{PIB}}{C_\text{expmap}\cdot A},
 \end{align*}
-where \(C\) denotes the counts in the photon image, total PIB map, and exposure map, respectively. Errors are calculated using Gaussian error propagation. Furthermore, background estimation is performed using \(10\) circular regions with a \(48'\) radius, each centered \(160'\) from the calculated center of NGC 1550. The average background surface brightness is evaluated for all circles combined and separately for the northern (Circles 1-5) and southern region (Circles 6-10) to account for the possibly significant background gradient. Table \ref{tab:background} lists the average background for all 3 cases. As is clear from the table, all background values consist with each other within a \(1\sigma\)-Intervall. Thus, for the following analysis and interpretation, the total background value obtained from all circles is utilized. 
+where \(C\) denotes the counts in the filtered photon image, total PIB map, and exposure map, respectively. Errors are calculated using Gaussian error propagation. Furthermore, background estimation is performed using \(10\) circular regions with a \(30'\) radius, each centered at a distance of \(100'\) from the SB-center (Figure TODO). The average background surface brightness is evaluated for all circles combined and separately for the northern (Circles 1-5) and southern region (Circles 6-10) to account for the possibly significant background gradient. Table \ref{tab:background} lists the average background for all 3 cases. As is clear from the table, the total background level is consistent with the other two within a \(1\sigma\)-Intervall. Therefore, unless otherwise specified, the total background value derived from all circles will be used for the subsequent analysis and interpretation.
+%
 \begin{figure}[htbp]
     \centering
     \includegraphics{data_analysis/beta_motel_tot_surf_bri_anulli1_1arcmin.pdf}
@@ -29,28 +36,29 @@ where \(C\) denotes the counts in the photon image, total PIB map, and exposure 
 \end{figure}
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{lcc}
-        \toprule
-        Region & Background (cts s$^{-1}$ arcsec$^{-2}$) \\
-        \midrule
-        Southern Background & $13 \times 10^{-8} \pm 2.0 \times 10^{-9}$ \\
-        Northern Background & $9.9 \times 10^{-8} \pm 1.2 \times 10^{-8}$ \\
-        Total Background    & $11 \times 10^{-8} \pm 1.7 \times 10^{-8}$ \\
-        \bottomrule
+    \begin{tabular}{l c}
+    \toprule
+    Region & Background / cts s$^{-1}$ arcsec$^{-2}$ \\
+    \midrule
+    North & $(1.03 \pm 0.10) \times 10^{-7}$ \\
+    South & $(1.27 \pm 0.04) \times 10^{-7}$ \\
+    Total & $(1.15 \pm 0.14) \times 10^{-7}$ \\
+    \bottomrule
     \end{tabular}
-    \caption{Average background surface brightness for southern, northern, and total regions in units of counts per second per square arcsecond (cts s$^{-1}$ arcsec$^{-2}$).}
+    \caption{Surface brightness and associated errors for the different background regions.}
     \label{tab:background}
 \end{table}
+%
 A \(\beta\)-Model is employed to characterize the surface brightness profile, given by
 \begin{align*}
     S(r) = S_0 \left(1 + \left(\frac{r}{r_c}\right)^2\right)^{-3\beta + 0.5} + d
 \end{align*}
 where \(d\) represents the background level. The center of each annulus is taken to be \(r\) and the corresponding surface brightness values are utilized. The optimized parameters and \(\chi^2 / \text{d.o.f}\) (Chi squared per degrees of freedom) are listed in Table \ref{table:full_az_fit_parameters}. Figure \ref{fig:tot_azimuthal_beta_model} illustrates the surface brightness as a function of radial distance from the center, including both the fitted \(\beta\)-Model and the observationally estimated background level.
-\begin{table}[h!]
+\begin{table}[htbp]
     \centering
     \begin{tabular}{lcccc}
     \toprule
-    Parameter & $S_0$ & $\beta$ & $r_c$ & $d$ \\
+    Parameter & $S_0$ / cts s$^{-1}$ arcsec$^{-2}$ & $\beta$ & $r_c$ / \(''\) & $d$ / cts s$^{-1}$ arcsec$^{-2}$ \\
     \midrule
         & $(4.1 \pm 0.4) \times 10^{-5}$ & $0.478 \pm 0.008$ & $60 \pm 5$ & $(9.3 \pm 0.4) \times 10^{-8}$ \\
     \midrule
@@ -58,30 +66,82 @@ where \(d\) represents the background level. The center of each annulus is taken
     \bottomrule
     \end{tabular}
     \caption{Fit parameters, their errors, and the reduced chi-squared value.}
-    \label{table:full_az_fit_parameters}
+    \label{tab:full_az_fit_parameters}
 \end{table}
-As one can clearly see from \ref{fig:tot_azimuthal_beta_model} and the \(\chi^2/\text{d.o.f}\) value of \(0.96\), the beta model describes the surface brightness profile well and a value of \(\beta = \num{0.478\pm0.008}\) is obtained. This is consist with the findings of THE ALMIGHTY FLYING SPAGHETTI MONSTER.The estimated and fitted backgrounds are consistent. A two-beta model fit, however, was not successful. This can be attributed to the limited angular resolution in the core region and the degeneracy between the core radius and \(\beta\).
+
+The beta model fit for the surface brightness profile, shown in Figure \ref{fig:tot_azimuthal_beta_model}, yields \(\beta = \num{0.478\pm0.008}\) and core radius \(r_c = (\num{60\pm5})'' \sim (15\pm2)\,\text{kpc}\) with \(\chi^2/\text{d.o.f.} = 0.96\). This result is consistent with previous studies: \cite{Kawaharada_2003} report \(\beta = 0.47\) and \(r_c \sim (16\pm1)\,\text{kpc}\) using ASCA data; \cite{Kawaharada_2009} use a two-beta model to find \(\beta = \num{0.50\pm0.05}\) and \(r_c \sim (20\pm3)\,\text{kpc}\) for the outer component from XMM-Newton data; \cite{Sun_2003} also derive \(\beta \sim 0.48\) and a slightly higher \(r_c \sim 26\,\text{kpc}\) for the outer component using Chandra data; \cite{Reiprich_2002}, although, report a somewhat higher \(\beta = 0.554^{+0.049}_{-0.037}\). The surface brightness profile also highlights that the group emission decreases to the background level at approximately \(R_{500}\), as observed in Section \ref{sec:image_inspection}. The observationally estimated total background, however, is approximately 24\% higher than the fitted background and falls just outside the \(1\sigma\) confidence interval. Although this discrepancy is not that alarming, it does indicate challenges associated with the somewhat complex background. 
+
+A two-beta model fit was not successful. This can be attributed to the limited angular resolution of the \(1'\) width anulli in the core region and the degeneracy between the core radius and \(\beta\). Finer annuli were attempted, but did not significantly improve the description of the surface brightness profile within the core and resulted in poor error estimation in the outskirts due to low count rates. Indeed, \cite{Kawaharada_2009} find an inner core component of \(r \sim 3\,\text{kpc}\) corresponding to \(\sim 12'' \) which is comparable to the eROSITA angular resolution \(\sim 15''\).
 \subsection{Beta Model and Residual Image}
-Using the parameters from Table \ref{tab:background}, a beta model image (Fig. \ref{fig:beta_model}) and a residual image (Fig. \ref{fig:residual_image}) are created. The beta model image is generated by distributing the one-dimensional beta model across the image. This involves computing the distance from the surface brightness center to each coordinate \((x, y)\) in the image and then scalling the output of the beta model by the eROSITA pixel area of \(16\text{arcsec}^2\). The residual image was obtained by subtracting the scaled beta model from the fully corrected image:
+Using the parameters from Table \ref{tab:full_az_fit_parameters}, a beta model image (Fig. \ref{fig:beta_model}) and a residual image (Fig. \ref{fig:residual_image}) are created. The beta model image is generated by distributing the one-dimensional beta model across the image. This involves computing the distance from the surface brightness center to each coordinate \((x, y)\) in the image and then scalling the output of the beta model by the eROSITA pixel area of \(16\text{arcsec}^2\). The residual image was obtained by subtracting the scaled beta model from the fully corrected image. Hence,
 \begin{align*}
-    \text{res. img}(x, y) = \text{corr. img}(x, y) - S(\sqrt{x^2 + y^2}) \cdot \text{pix. area}
+    \text{res. img}(x, y) = \text{corr. img}(x, y) - S\left(\sqrt{x^2 + y^2}\right) \cdot \text{pix. area}
 \end{align*}
-The residual image reveals that, except at the very center of the galaxy group, the beta model slightly overestimates the emission around the core. This overestimation can be attributed to the absence of a second beta component, as a single beta model often inadequately describes the inner core emission, leading to higher-than-expected values.
+The residual image indicates that the beta model underestimates the emission around the core. This can be attributed to the absence of a second beta component, as a single beta model often inadequately describes the inner core emission, which is often higher-than-expected. \cite{Sun_2003} report, however, that even a two-beta fit is not sufficient to describe the surface brightness within the central \(1\,\text{kpc}\). Disregarding the excess emission within the core, no significant substructure or features can be noticed from the residual image.
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{data_analysis/beta_model.pdf}
-        \caption{Beta model image}
-        \label{fig:beta_model}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{data_reduction/wlt_filtered_cheese.pdf}
-        \caption{Residual image}
-        \label{fig:residual_image}
-    \end{subfigure}
-    \caption{Comparison of the beta model image and the residual image. The colorbar indicates counts per second. The residual image indicate that the beta model slightly overestimates the emission around the core, likely due to the inadequacy of a single beta model in capturing the core's emission.}
-    \label{fig:comparison_beta_residual}
+    \includegraphics{data_analysis/beta_model.pdf}
+    \caption{Beta model image. The colorbar represents counts per second.}
+    \label{fig:beta_model}
 \end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{data_analysis/residual_image.pdf}
+    \caption{Residual image. The colorbar represents counts per second and the image has been smoothed with a Gaussian-kernel of 5 pixels. The residual image indicate that the beta model slightly overestimates the emission around the core, likely due to the inadequacy of a single beta model in capturing the core's emission.}
+    \label{fig:residual_image}
+\end{figure}
+\section{Sectorial Surface Brightness Analysis}
+Thus far, the surface brightness analysis has encompassed the entire azimuthal extent of the group. By analyzing surface brightness within specific sectors and comparing them to the full azimuthal profile, elongation in certain directions can be revealed. Various authors have reported an east-west elongation at the center of NGC1550 (\cite{Sun_2003}, \cite{Kolokythas_2020}), making it particularly interesting to determine whether this elongation extends into the outer regions of the group. To investigate this, four sectorial regions (north, south, east, and west) are divided into annuli, as shown in Figure \ref{fig:contour_fully_corrected}. The center, width and extension of the annuli remain as described in Section \ref{sec:image_inspection}, and surface brightness calculations and beta model fitting follow the same methodology.
+
+Each region is initially fitted individually. Thereafter, the north and south sectors are fitted together, as are the east and west sectors. Figure \ref{fig:beta_model_West_East} illustrates the comparison between the east and west profiles, as well as the north and south profiles. The top graph shows the surface brightness profiles, including the observationally determined sky background and the corresponding beta model. The lower graph displays the relative surface brightness differences of each region \((\text{SB}\text{sec})\) compared to the full azimuthal surface brightness profile \((\text{SB}\text{an})\).The error bars represent the error of the relative difference computed by Gaussian error propagation. The fit parameters for each beta model are listed in Table \ref{table:full_sec_fit_parameters}. 
+
+The fits are of lower quality ($\chi^2 / \text{d.o.f.} \lesssim 0.8$), suggesting possible overfitting or, more likely, an overestimation of the errors as attempts using wider $2'$ annuli resulted in significantly improved $\chi^2 / \text{d.o.f.} \gtrsim 0.95$ for the west, north, and combined east-west profiles, and a modest improvement for the remaining sectors. These fit parameters and $\chi^2 / \text{d.o.f.}$ values are detailed in Appendix TODO. However, since the full azimuthal analysis was only performed with the smaller annuli and the resulting fit parameters are consistent across both cases, the smaller annuli will be utilized for the following comparison. 
+
+In all cases, no notable deviation from the full azimuthal profile is observed beyond \(100'\). When inspecting the western region, the emission dip observed in the western region between approximately \(810''\) and \(390''\)--as noted in section \ref{sec:image_inspection}--is noticeable in relation to the full azimuthal surface brightness plot. However, these deviations are not quantitatively significant and may be attributed to statistical fluctuations. For the northern and southern sectors, a deviation is noted at the first data point. This discrepancy is likely due to a suboptimal choice of the annuli center and is probably not physically significant. The combined east-west and north-south emissions are also compared in Figure \ref{fig:beta_model_East_West_North_South}. Here, too, no significant deviation from the full azimuthal profile is observed beyond the first data point.
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics{data_analysis/beta_model_West-East.pdf}
+        \caption{Beta model fits for the West and East regions.}
+        \label{fig:beta_model_West_East}
+    \end{subfigure}
+    \vspace{0.5cm} 
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics{data_analysis/beta_model_North-South.pdf}
+        \caption{Beta model fits for the North and South regions.}
+        \label{fig:beta_model_North_South}
+    \end{subfigure}
+    \caption{Beta model fits for the West-East and North-South regions. The surface brightness profiles are shown in the top graph, including the observationally determined sky background and the respective beta model. The lower graph displays the relative surface brightness differences between each region (\(\text{SB}_{\text{sec}}\)) and the full azimuthal surface brightness profile (\(\text{SB}_{\text{an}}\)), with error bars representing Gaussian error propagation. No significant deviation from the full azimuthal profile is observed beyond \(100''\).}
+    \label{fig:beta_models_West_North}
+\end{figure}
+%
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{data_analysis/beta_model_East+West-North+South.pdf}
+    \caption{Combined beta model fits for the East+West and North+South regions. The combined surface brightness profiles show no significant deviation from the full azimuthal profile beyond the first data point.}
+    \label{fig:beta_model_East_West_North_South}
+\end{figure}
+%
+\begin{table}[htbp]
+    \centering
+    \resizebox{\textwidth}{!}{%
+        \begin{tabular}{lccccc}
+        \toprule
+        Parameter & $S_0$ / cts s$^{-1}$ arcsec$^{-2}$ & $\beta$ & $r_c$ / $''$ & $d$ / cts s$^{-1}$ arcsec$^{-2}$ & $\chi^2 / \text{d. o. f}$ \\
+        \midrule
+        East+West & \((2.88 \pm 0.27) \times 10^{-5}\) & \((5.08 \pm 0.12) \times 10^{-1}\) & \((8.60 \pm 0.80) \times 10^{1}\) & \((1.02 \pm 0.05) \times 10^{-7}\) & \(0.83\)\\
+        North+South & \((6.20 \pm 0.71) \times 10^{-5}\) & \((4.58 \pm 0.07) \times 10^{-1}\) & \((4.01 \pm 0.43) \times 10^{1}\) & \((8.45 \pm 0.46) \times 10^{-8}\) & \(0.71\)\\
+        West & \((3.42 \pm 0.42) \times 10^{-5}\) & \((5.20 \pm 0.16) \times 10^{-1}\) & \((8.11 \pm 0.98) \times 10^{1}\) & \((9.63 \pm 0.60) \times 10^{-8}\) & \(0.77\)\\
+        East & \((3.18 \pm 0.43) \times 10^{-5}\) & \((4.87 \pm 0.15) \times 10^{-1}\) & \((7.22 \pm 0.97) \times 10^{1}\) & \((1.02 \pm 0.07) \times 10^{-7}\) & \(0.82\)\\
+        North & \((2.23 \pm 0.35) \times 10^{-5}\) & \((4.49 \pm 0.14) \times 10^{-1}\) & \((6.6 \pm 1.1) \times 10^{1}\) & \((7.89 \pm 0.78) \times 10^{-8}\) & \(0.78\)\\
+        South & \((1.10 \pm 0.20) \times 10^{-4}\) & \((4.69 \pm 0.10) \times 10^{-1}\) & \((3.32 \pm 0.53) \times 10^{1}\) & \((8.69 \pm 0.64) \times 10^{-8}\) & \(0.86\)\\
+        \bottomrule
+        \end{tabular}
+    }
+    \caption{Fit parameters, their errors, and the reduced chi-squared value.}
+    \label{table:full_sec_fit_parameters}
+\end{table}
+%
+It can be noticed, however, that the \(\beta\)-parameter and the core radius \(r_c\) are not always consistent when comparing the sectors against each other and with the full azimuthal profile. For example, it is noteworthy that the core radius \(r_c\) for the combined east and west regions is more than twice as large for the north and south regions, together with \(\sim 10\%\) larger \(\beta\) value, with the deviations beeing almost \(3\sigma\) in both cases. (This aligns with our visual inspection in Section \ref{sec:image_inspection}, which suggested that the east and particularly the west have a sharper emission drop-off compared to the north and south ?). Indeed, most of the \(\beta\)-values and the core radii are not consistant within a \(1\sigma\) interval if one compares the sectors against each other. This may be taken as an indication of the notion that no galaxy group or galaxy cluster exhibits perfect azimuthal symmetry. In-falling matter inevitably induces deviations from complete azimuthal symmetry.

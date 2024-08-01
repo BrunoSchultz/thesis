@@ -518,7 +518,7 @@ class PrimCompanion(fits.PrimaryHDU):
         elif norm == 'log2':
             norm = SymLogNorm(linthresh=1e-8, vmin=vmin, vmax=vmax, clip=True, base=2)
         elif norm == 'SymLog':
-            norm = SymLogNorm(linthresh=1e-4, vmin=vmin, vmax=vmax, clip=True, base=10)
+            norm = SymLogNorm(linthresh=1e-5, vmin=vmin, vmax=vmax, clip=True, base=10)
         else:
             raise ValueError('Invalid normalization method.')
 

@@ -65,13 +65,13 @@ The total absorption-corrected exposure map for TM0 is then given by
 \begin{align*}
     \text{exmap}_\text{TM0, corr} = \text{exmap}_\text{TM8, corr} + E_\text{corr}\cdot\text{exmap}_\text{TM9, corr} 
 \end{align*}
-Dividing the PIB-corrected TM0 image by the complete absorption-corrected exposure map leads to the final filtered, PIB-corrected, absorption-corrected, exposure-corrected image.
+Dividing the PIB-corrected TM0 image by the complete absorption-corrected exposure map leads to the final filtered, PIB-corrected, absorption-corrected and exposure-corrected image. In the following, this shall be referred to as \enquote{corrected}.
 \section{Wavelet filtering and Point Source Removal}
 It is necessary to remove the emission from point-like sources (e.g. AGNs) to prevent interference with the cluster emission under study. This is achieved using the wavelet filtering pipeline as described in \cite{Pacaud2006}. Wavelet transformation decomposes an image \(I(x, y)\) into coefficients \((w_1, \ldots, w_n, c_n)\)
 \begin{align*}
 I(x, y) = c_n(x, y) + \sum_{j=1}^{n}w_j(x, y).    
 \end{align*}
-Here, \(c_n(x, y)\) is the smoothed image, and \(w_j(x, y)\) represents the contribution of a wavelet function at a scale \(j\) and position \((x, y)\) to the total image. By retaining only the coefficients that satisfy
+Here, \(c_n(x, y)\) is the smoothed image, and \(w_j(x, y)\) essentially represents the contribution of a wavelet function at a scale \(j\) and position \((x, y)\) to the total image. By retaining only the coefficients that satisfy
 \begin{align*}
 |w_j(x, y)| > k\sigma_j,
 \end{align*}

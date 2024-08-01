@@ -57,6 +57,122 @@
       \endverb
       \keyw{METHODS: DATA ANALYSIS,TECHNIQUES: IMAGE PROCESSING,GALAXIES: PHOTOMETRY}
     \endentry
+    \entry{Bohringer_2000}{article}{}
+      \name{author}{14}{}{%
+        {{un=0,uniquepart=base,hash=ad31bebf182abe601bb9ef4fef771b59}{%
+           family={{Böhringer}},
+           familyi={B\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4e23ed2ecf72c02ca450f70a4d0cc3c6}{%
+           family={{Voges}},
+           familyi={V\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=93d743b838cd363453ef893b16f8c7fb}{%
+           family={{Huchra}},
+           familyi={H\bibinitperiod},
+           given={J.\bibnamedelimi P.},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=38fe366a054ef19b93445433f2d40c3f}{%
+           family={{McLean}},
+           familyi={M\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2c438534676f1e6d0d44b53103f5ff81}{%
+           family={{Giacconi}},
+           familyi={G\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=839ca72ae2d86fa041e039d98608fb7a}{%
+           family={{Rosati}},
+           familyi={R\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8611fc15dbc6dd7902b25c40caa2314d}{%
+           family={{Burg}},
+           familyi={B\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=101ff1076c397f71a01685e92630bafd}{%
+           family={{Mader}},
+           familyi={M\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=57fd7ff9b94fa0a9b41299a361eb0a70}{%
+           family={{Schuecker}},
+           familyi={S\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d13ecfaf120dafb576be845fecfc4b18}{%
+           family={{Simiç}},
+           familyi={S\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6b7c8a05f80dc4ba48aa8aa8986d08ff}{%
+           family={{Komossa}},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c2df03ca7c79b600a7570a28af175f6e}{%
+           family={{Reiprich}},
+           familyi={R\bibinitperiod},
+           given={T.\bibnamedelimi H.},
+           giveni={T\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=13587eb4188735191995f9ff1281c28d}{%
+           family={{Retzlaff}},
+           familyi={R\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2b35601f3e5f04bc1b2c9012ef210dcc}{%
+           family={{Trümper}},
+           familyi={T\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{4ba4666369c8f272fe37b058133e5d23}
+      \strng{fullhash}{71c0d22cef8a1a9609fed50b86542c3c}
+      \strng{bibnamehash}{4ba4666369c8f272fe37b058133e5d23}
+      \strng{authorbibnamehash}{4ba4666369c8f272fe37b058133e5d23}
+      \strng{authornamehash}{4ba4666369c8f272fe37b058133e5d23}
+      \strng{authorfullhash}{71c0d22cef8a1a9609fed50b86542c3c}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{astro-ph}
+      \field{eprinttype}{arXiv}
+      \field{month}{8}
+      \field{number}{2}
+      \field{title}{{The Northern ROSAT All-Sky (NORAS) Galaxy Cluster Survey. I. X-Ray Properties of Clusters Detected as Extended X-Ray Sources}}
+      \field{volume}{129}
+      \field{year}{2000}
+      \field{pages}{435\bibrangedash 474}
+      \range{pages}{40}
+      \verb{doi}
+      \verb 10.1086/313427
+      \endverb
+      \verb{eprint}
+      \verb astro-ph/0003219
+      \endverb
+      \keyw{Galaxies: Clusters: General,Cosmology: Large-Scale Structure of Universe,Surveys,X-Rays: Galaxies,Astrophysics}
+    \endentry
     \entry{brandt2005deep}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=b92d3a6a7ddd6d05bc6e15998d428fc1}{%
@@ -246,14 +362,49 @@
       \verb https://dx.doi.org/10.3847/1538-4357/ab698a
       \endverb
     \endentry
+    \entry{Cavaliere_1976}{article}{}
+      \name{author}{2}{}{%
+        {{un=1,uniquepart=given,hash=22e5bdb0ffef90f4834c62ae57a9c484}{%
+           family={{Cavaliere}},
+           familyi={C\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=600b92883261ddbf65aa69d766e56807}{%
+           family={{Fusco-Femiano}},
+           familyi={F\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{06063b86bdbb69353f23d5e8d9f9ddff}
+      \strng{fullhash}{06063b86bdbb69353f23d5e8d9f9ddff}
+      \strng{bibnamehash}{06063b86bdbb69353f23d5e8d9f9ddff}
+      \strng{authorbibnamehash}{06063b86bdbb69353f23d5e8d9f9ddff}
+      \strng{authornamehash}{06063b86bdbb69353f23d5e8d9f9ddff}
+      \strng{authorfullhash}{06063b86bdbb69353f23d5e8d9f9ddff}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{title}{{X-rays from hot plasma in clusters of galaxies.}}
+      \field{volume}{49}
+      \field{year}{1976}
+      \field{pages}{137\bibrangedash 144}
+      \range{pages}{8}
+      \keyw{Bremsstrahlung,Galactic Clusters,High Temperature Plasmas,Intergalactic Media,Plasma Radiation,X Ray Sources,Background Radiation,Cosmic Plasma,Gas Density,Light Curve,Luminous Intensity,Space Radiation}
+    \endentry
     \entry{Cavaliere_1971}{article}{}
       \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=7bcf3dfca0fb55c6116be25153e38eaf}{%
+        {{un=1,uniquepart=given,hash=7bcf3dfca0fb55c6116be25153e38eaf}{%
            family={Cavaliere},
            familyi={C\bibinitperiod},
            given={A.\bibnamedelimi G.},
            giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod},
-           givenun=0}}%
+           givenun=1}}%
         {{un=0,uniquepart=base,hash=faaf419d492c87697f1ec4f7f4011c66}{%
            family={Gurksy},
            familyi={G\bibinitperiod},
@@ -333,6 +484,56 @@
       \field{year}{2001}
       \field{pages}{1010\bibrangedash 1019}
       \range{pages}{10}
+    \endentry
+    \entry{Peebles1998}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=72ed371dc98ba7c921bcbccbaac9b5b0}{%
+           family={{Fukugita}},
+           familyi={F\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d89b7e62c0b9e0d0f11604526ad9a7b}{%
+           family={{Hogan}},
+           familyi={H\bibinitperiod},
+           given={C.\bibnamedelimi J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dd71b2b0e5f00721bd0cdf4a474674df}{%
+           family={{Peebles}},
+           familyi={P\bibinitperiod},
+           given={P.\bibnamedelimi J.\bibnamedelimi E.},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3d4960c874938d0f64d4e4491c86592e}
+      \strng{fullhash}{3d4960c874938d0f64d4e4491c86592e}
+      \strng{bibnamehash}{3d4960c874938d0f64d4e4491c86592e}
+      \strng{authorbibnamehash}{3d4960c874938d0f64d4e4491c86592e}
+      \strng{authornamehash}{3d4960c874938d0f64d4e4491c86592e}
+      \strng{authorfullhash}{3d4960c874938d0f64d4e4491c86592e}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{astro-ph}
+      \field{eprinttype}{arXiv}
+      \field{month}{8}
+      \field{number}{2}
+      \field{title}{{The Cosmic Baryon Budget}}
+      \field{volume}{503}
+      \field{year}{1998}
+      \field{pages}{518\bibrangedash 530}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1086/306025
+      \endverb
+      \verb{eprint}
+      \verb astro-ph/9712020
+      \endverb
+      \keyw{COSMOLOGY: OBSERVATIONS,ELEMENTARY PARTICLES,GALAXIES: FUNDAMENTAL PARAMETERS,Cosmology: Observations,Elementary Particles,Galaxies: Fundamental Parameters,Astrophysics}
     \endentry
     \entry{galeazzi2006xmm}{article}{}
       \name{author}{4}{}{%
@@ -514,6 +715,189 @@
       \endverb
       \verb{url}
       \verb https://ui.adsabs.harvard.edu/abs/2016A&A...594A.116H
+      \endverb
+    \endentry
+    \entry{Kawaharada_2009}{article}{}
+      \name{author}{7}{ul=3}{%
+        {{un=0,uniquepart=base,hash=2a7e5f112ba22ded20a72b652a67aa42}{%
+           family={Kawaharada},
+           familyi={K\bibinitperiod},
+           given={Madoka},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=651e95ff7fa83906927eaf1b4ea48e1d}{%
+           family={Makishima},
+           familyi={M\bibinitperiod},
+           given={Kazuo},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=277d3f57f213a504cea7d2d8bb66377a}{%
+           family={Kitaguchi},
+           familyi={K\bibinitperiod},
+           given={Takao},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=55493279e926bbfa128cad33dcf52fa7}{%
+           family={Okuyama},
+           familyi={O\bibinitperiod},
+           given={Sho},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=871e32f54db5a78d7a3e4824810d0ca6}{%
+           family={Nakazawa},
+           familyi={N\bibinitperiod},
+           given={Kazuhiro},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c8a8ce8dadf1b4bffd93860f29822c2f}{%
+           family={Matsushita},
+           familyi={M\bibinitperiod},
+           given={Kyoko},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=de8c750542f9b5884e9420c94c6efc3d}{%
+           family={Fukazawa},
+           familyi={F\bibinitperiod},
+           given={Yasushi},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {The American Astronomical Society}%
+      }
+      \strng{namehash}{72cb3819091a8bce2427c08c4f04a2aa}
+      \strng{fullhash}{c9d40f7a263889f2187e572f375b6094}
+      \strng{bibnamehash}{72cb3819091a8bce2427c08c4f04a2aa}
+      \strng{authorbibnamehash}{72cb3819091a8bce2427c08c4f04a2aa}
+      \strng{authornamehash}{72cb3819091a8bce2427c08c4f04a2aa}
+      \strng{authorfullhash}{c9d40f7a263889f2187e572f375b6094}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{1}
+      \field{number}{2}
+      \field{title}{A GALAXY MERGER SCENARIO FOR THE NGC 1550 GALAXY FROM METAL DISTRIBUTIONS IN THE X-RAY EMITTING PLASMA}
+      \field{volume}{691}
+      \field{year}{2009}
+      \field{pages}{971}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/0004-637X/691/2/971
+      \endverb
+      \verb{urlraw}
+      \verb https://dx.doi.org/10.1088/0004-637X/691/2/971
+      \endverb
+      \verb{url}
+      \verb https://dx.doi.org/10.1088/0004-637X/691/2/971
+      \endverb
+    \endentry
+    \entry{Kawaharada_2003}{article}{}
+      \name{author}{8}{ul=3}{%
+        {{un=0,uniquepart=base,hash=2a7e5f112ba22ded20a72b652a67aa42}{%
+           family={{Kawaharada}},
+           familyi={K\bibinitperiod},
+           given={Madoka},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=651e95ff7fa83906927eaf1b4ea48e1d}{%
+           family={{Makishima}},
+           familyi={M\bibinitperiod},
+           given={Kazuo},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d379b94fb41b797eb441ad3479041eb8}{%
+           family={{Takahashi}},
+           familyi={T\bibinitperiod},
+           given={Isao},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=871e32f54db5a78d7a3e4824810d0ca6}{%
+           family={{Nakazawa}},
+           familyi={N\bibinitperiod},
+           given={Kazuhiro},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c8a8ce8dadf1b4bffd93860f29822c2f}{%
+           family={{Matsushita}},
+           familyi={M\bibinitperiod},
+           given={Kyoko},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=27a7253be95a487f7b6f0ed7b4d35562}{%
+           family={{Shimasaku}},
+           familyi={S\bibinitperiod},
+           given={Kazuhiro},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=de8c750542f9b5884e9420c94c6efc3d}{%
+           family={{Fukazawa}},
+           familyi={F\bibinitperiod},
+           given={Yasushi},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6bfe0d4b3b2e6cfe87ffe38cb6ac1ed0}{%
+           family={{Xu}},
+           familyi={X\bibinitperiod},
+           given={Haiguang},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{cb8f4841b1eb98808d58d1331c46b2b1}
+      \strng{fullhash}{1a63ddffdcaae6e71776fc0d3e3e9362}
+      \strng{bibnamehash}{cb8f4841b1eb98808d58d1331c46b2b1}
+      \strng{authorbibnamehash}{cb8f4841b1eb98808d58d1331c46b2b1}
+      \strng{authornamehash}{cb8f4841b1eb98808d58d1331c46b2b1}
+      \strng{authorfullhash}{1a63ddffdcaae6e71776fc0d3e3e9362}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{{A New Candidate for the Dark Group of Galaxies, RX J0419+0225}}
+      \field{volume}{55}
+      \field{year}{2003}
+      \field{pages}{573\bibrangedash 577}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1093/pasj/55.3.573
+      \endverb
+      \keyw{galaxies: clusters: individual (RX J0419+0225),galaxies: elliptical and lenticular,cD,X-rays: galaxies: clusters}
+    \endentry
+    \entry{King1962}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=12cdef995314c06186a39188437decf5}{%
+           family={{King}},
+           familyi={K\bibinitperiod},
+           given={Ivan},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{12cdef995314c06186a39188437decf5}
+      \strng{fullhash}{12cdef995314c06186a39188437decf5}
+      \strng{bibnamehash}{12cdef995314c06186a39188437decf5}
+      \strng{authorbibnamehash}{12cdef995314c06186a39188437decf5}
+      \strng{authornamehash}{12cdef995314c06186a39188437decf5}
+      \strng{authorfullhash}{12cdef995314c06186a39188437decf5}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{10}
+      \field{title}{{The structure of star clusters. I. an empirical density law}}
+      \field{volume}{67}
+      \field{year}{1962}
+      \field{pages}{471}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1086/108756
       \endverb
     \endentry
     \entry{Kolokythas_2020}{article}{}
@@ -1368,7 +1752,7 @@
       \endverb
     \endentry
     \entry{Reiprich2021}{article}{}
-      \name{author}{47}{}{%
+      \name{author}{47}{ul=2}{%
         {{un=0,uniquepart=base,hash=c2df03ca7c79b600a7570a28af175f6e}{%
            family={Reiprich},
            familyi={R\bibinitperiod},
@@ -1652,11 +2036,11 @@
            giveni={E\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{ee9ea48704c2c279aba5fa3ff46a8cf6}
+      \strng{namehash}{c3d0f6bf331a3c34925c0126a1986c8c}
       \strng{fullhash}{75d97ceb7abd0c45004e08c6d79958a2}
-      \strng{bibnamehash}{ee9ea48704c2c279aba5fa3ff46a8cf6}
-      \strng{authorbibnamehash}{ee9ea48704c2c279aba5fa3ff46a8cf6}
-      \strng{authornamehash}{ee9ea48704c2c279aba5fa3ff46a8cf6}
+      \strng{bibnamehash}{c3d0f6bf331a3c34925c0126a1986c8c}
+      \strng{authorbibnamehash}{c3d0f6bf331a3c34925c0126a1986c8c}
+      \strng{authornamehash}{c3d0f6bf331a3c34925c0126a1986c8c}
       \strng{authorfullhash}{75d97ceb7abd0c45004e08c6d79958a2}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
@@ -1678,6 +2062,154 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1051/0004-6361/202039590
+      \endverb
+    \endentry
+    \entry{Reiprich_2002}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5cf81d166898b1ae6d306a1a89d850ef}{%
+           family={Reiprich},
+           familyi={R\bibinitperiod},
+           given={Thomas\bibnamedelima H.},
+           giveni={T\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=64f178f8412c9004187a870776f989ae}{%
+           family={Böhringer},
+           familyi={B\bibinitperiod},
+           given={Hans},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{dddf88be44c58926232ded55e24e50a3}
+      \strng{fullhash}{dddf88be44c58926232ded55e24e50a3}
+      \strng{bibnamehash}{dddf88be44c58926232ded55e24e50a3}
+      \strng{authorbibnamehash}{dddf88be44c58926232ded55e24e50a3}
+      \strng{authornamehash}{dddf88be44c58926232ded55e24e50a3}
+      \strng{authorfullhash}{dddf88be44c58926232ded55e24e50a3}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{3}
+      \field{number}{2}
+      \field{title}{The Mass Function of an X-Ray Flux-limited Sample of Galaxy Clusters}
+      \field{volume}{567}
+      \field{year}{2002}
+      \field{pages}{716}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1086/338753
+      \endverb
+      \verb{urlraw}
+      \verb https://dx.doi.org/10.1086/338753
+      \endverb
+      \verb{url}
+      \verb https://dx.doi.org/10.1086/338753
+      \endverb
+    \endentry
+    \entry{Reiprich2019}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5cf81d166898b1ae6d306a1a89d850ef}{%
+           family={Reiprich},
+           familyi={R\bibinitperiod},
+           given={Thomas\bibnamedelima H.},
+           giveni={T\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=84cb71611c168b6cc21284d0197d6c36}{%
+           family={Pacaud},
+           familyi={P\bibinitperiod},
+           given={Florence},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{656ebbabb154ee938bca297cefab6b22}
+      \strng{fullhash}{656ebbabb154ee938bca297cefab6b22}
+      \strng{bibnamehash}{656ebbabb154ee938bca297cefab6b22}
+      \strng{authorbibnamehash}{656ebbabb154ee938bca297cefab6b22}
+      \strng{authornamehash}{656ebbabb154ee938bca297cefab6b22}
+      \strng{authorfullhash}{656ebbabb154ee938bca297cefab6b22}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Multiwavelength Observations of Galaxy Clusters}
+      \field{year}{2019}
+    \endentry
+    \entry{Sato_2010}{article}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=b0bbc4d31e960f68f5eb31b9c2d95d8a}{%
+           family={Sato},
+           familyi={S\bibinitperiod},
+           given={Kosuke},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2a7e5f112ba22ded20a72b652a67aa42}{%
+           family={Kawaharada},
+           familyi={K\bibinitperiod},
+           given={Madoka},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=871e32f54db5a78d7a3e4824810d0ca6}{%
+           family={Nakazawa},
+           familyi={N\bibinitperiod},
+           given={Kazuhiro},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c8a8ce8dadf1b4bffd93860f29822c2f}{%
+           family={Matsushita},
+           familyi={M\bibinitperiod},
+           given={Kyoko},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0069a5476005bffbf83f3acb1bf0692b}{%
+           family={Ishisaki},
+           familyi={I\bibinitperiod},
+           given={Yoshitaka},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=caa9378fa42031bb27ed3abbb53c7388}{%
+           family={Yamasaki},
+           familyi={Y\bibinitperiod},
+           given={Noriko\bibnamedelima Y.},
+           giveni={N\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a856ee59d50b8401be4572b844f73d52}{%
+           family={Ohashi},
+           familyi={O\bibinitperiod},
+           given={Takaya},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{330e3a56a51f6bb78290b9e6131a802d}
+      \strng{fullhash}{7015b4675e45e5b48b40b690109eaa3d}
+      \strng{bibnamehash}{330e3a56a51f6bb78290b9e6131a802d}
+      \strng{authorbibnamehash}{330e3a56a51f6bb78290b9e6131a802d}
+      \strng{authornamehash}{330e3a56a51f6bb78290b9e6131a802d}
+      \strng{authorfullhash}{7015b4675e45e5b48b40b690109eaa3d}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{astro-ph.CO}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{Publ. Astron. Soc. Jap.}
+      \field{number}{6}
+      \field{title}{{Metallicity of the Fossil Group NGC 1550 Observed with Suzaku}}
+      \field{volume}{62}
+      \field{year}{2010}
+      \field{pages}{1445\bibrangedash 1454}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1093/pasj/62.6.1445
+      \endverb
+      \verb{eprint}
+      \verb 1009.4173
       \endverb
     \endentry
     \entry{Schneider_2006}{book}{}
@@ -1748,6 +2280,75 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1051/aas:1998150
+      \endverb
+    \endentry
+    \entry{Sun_2003}{article}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=7e2e360827548f3aedfa687c27ddbdc3}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9db0bcdbb72e940f6de00413f4b1dbdd}{%
+           family={Forman},
+           familyi={F\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=597523a813a141b22225d73c8b5d536a}{%
+           family={Vikhlinin},
+           familyi={V\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=168374db2127365cb07f32a75a30f1c0}{%
+           family={Hornstrup},
+           familyi={H\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cf42e1fe5bf176e13553f90b13160496}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1fe4f56f28023cfc3ce70c73e163a688}{%
+           family={Murray},
+           familyi={M\bibinitperiod},
+           given={S.\bibnamedelimi S.},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7c9b58cc237c50188d18947a6edae7c5}
+      \strng{fullhash}{99417e1245c33278447063089d87f3c3}
+      \strng{bibnamehash}{7c9b58cc237c50188d18947a6edae7c5}
+      \strng{authorbibnamehash}{7c9b58cc237c50188d18947a6edae7c5}
+      \strng{authornamehash}{7c9b58cc237c50188d18947a6edae7c5}
+      \strng{authorfullhash}{99417e1245c33278447063089d87f3c3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{11}
+      \field{number}{1}
+      \field{title}{Chandra Observations of the NGC 1550 Galaxy Group: Implication for the Temperature and Entropy Profiles of 1 keV Galaxy Groups}
+      \field{volume}{598}
+      \field{year}{2003}
+      \field{pages}{250}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1086/378887
+      \endverb
+      \verb{urlraw}
+      \verb https://dx.doi.org/10.1086/378887
+      \endverb
+      \verb{url}
+      \verb https://dx.doi.org/10.1086/378887
       \endverb
     \endentry
     \entry{veronica2020}{thesis}{}
