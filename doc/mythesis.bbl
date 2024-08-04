@@ -1612,6 +1612,66 @@
       \verb 10.1109/MCSE.2007.55
       \endverb
     \endentry
+    \entry{Jones2003}{article}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=39b701b10f089b6b5ccf6776adb4c595}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=620a5744c07109a9fb22a950658a750d}{%
+           family={Ponman},
+           familyi={P\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bc6835ebae3e9056f7f49eb408828ae8}{%
+           family={Horton},
+           familyi={H\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=43937f214b69cf6f0d7b9544ecf3ed6c}{%
+           family={Babul},
+           familyi={B\bibinitperiod},
+           given={Arif},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1ac7f430c043987627ac26b23ec675d7}{%
+           family={Ebeling},
+           familyi={E\bibinitperiod},
+           given={Harald},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d98b887dcdffc333546b2f0939758725}{%
+           family={Burke},
+           familyi={B\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d6d91bedade99565b1c200d7ba0f95b3}
+      \strng{fullhash}{a06a6c42863919bd31dbe5738d37ec3f}
+      \strng{bibnamehash}{d6d91bedade99565b1c200d7ba0f95b3}
+      \strng{authorbibnamehash}{d6d91bedade99565b1c200d7ba0f95b3}
+      \strng{authornamehash}{d6d91bedade99565b1c200d7ba0f95b3}
+      \strng{authorfullhash}{a06a6c42863919bd31dbe5738d37ec3f}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{MNRAS}
+      \field{month}{04}
+      \field{title}{The nature and space density of fossil groups of galaxies}
+      \field{volume}{343}
+      \field{year}{2003}
+      \verb{doi}
+      \verb 10.1046/j.1365-8711.2003.06702.x
+      \endverb
+    \endentry
     \entry{Kawaharada_2009}{article}{}
       \name{author}{7}{ul=3}{%
         {{un=0,uniquepart=base,hash=2a7e5f112ba22ded20a72b652a67aa42}{%
@@ -1886,6 +1946,72 @@
       \verb http://dx.doi.org/10.1093/mnras/staa1506
       \endverb
     \endentry
+    \entry{Krause_2014}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=6ef3562faa8d5e34622b5411be400fa8}{%
+           family={Krause},
+           familyi={K\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4f7d2c6636484f084625ac88465f4f71}{%
+           family={Diehl},
+           familyi={D\bibinitperiod},
+           given={Roland},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=64f178f8412c9004187a870776f989ae}{%
+           family={Böhringer},
+           familyi={B\bibinitperiod},
+           given={Hans},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=14d3efaf2ff0a3cd9d8ec3f121001af6}{%
+           family={Freyberg},
+           familyi={F\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cf860acc2adb46ca014b1ab27b1cda0a}{%
+           family={Lubos},
+           familyi={L\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {EDP Sciences}%
+      }
+      \strng{namehash}{e58bf7568f835086389318d449debe22}
+      \strng{fullhash}{c28b4347039a96f5c17f4e2898978684}
+      \strng{bibnamehash}{c28b4347039a96f5c17f4e2898978684}
+      \strng{authorbibnamehash}{c28b4347039a96f5c17f4e2898978684}
+      \strng{authornamehash}{e58bf7568f835086389318d449debe22}
+      \strng{authorfullhash}{c28b4347039a96f5c17f4e2898978684}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1432-0746}
+      \field{journaltitle}{Astronomy \&amp; Astrophysics}
+      \field{month}{6}
+      \field{title}{Feedback by massive stars and the emergence of superbubbles: II. X-ray properties}
+      \field{volume}{566}
+      \field{year}{2014}
+      \field{pages}{A94}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1051/0004-6361/201423871
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1051/0004-6361/201423871
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1051/0004-6361/201423871
+      \endverb
+    \endentry
     \entry{KravtsovBorgani2012}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=1e9b40e08757fa8facacdd46fc21b561}{%
@@ -1940,6 +2066,81 @@
       \verb https://www.annualreviews.org/doi/10.1146/annurev-astro-081811-125502
       \endverb
       \keyw{galaxy clusters,cosmology,dark matter,intracluster medium,structure formation}
+    \endentry
+    \entry{Liu2020}{article}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=fc503e8b62eecf2c1f583b4191d838e1}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Ang},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e647860b03c7b7b21e6dde29451ce353}{%
+           family={Tozzi},
+           familyi={T\bibinitperiod},
+           given={Paolo},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=94aa2374884e00f77dc3df9c37a47145}{%
+           family={Ettori},
+           familyi={E\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a67719cb2c590df663311da943daf693}{%
+           family={Grandi},
+           familyi={G\bibinitperiod},
+           given={Sabrina\bibnamedelima De},
+           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b8a5663a22af3cede158f7ff81883d13}{%
+           family={Gastaldello},
+           familyi={G\bibinitperiod},
+           given={Fabio},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eb7dd304089c6f5ef9c9e94e6f81e85f}{%
+           family={Rosati},
+           familyi={R\bibinitperiod},
+           given={Piero},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e90fcadb9e33045098bd2e36eede9e7d}{%
+           family={Norman},
+           familyi={N\bibinitperiod},
+           given={Colin},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f0892e7fb255379a72dddd5bc08f491f}
+      \strng{fullhash}{210e0d7bd7cb515d0d17c39771fd7c49}
+      \strng{bibnamehash}{f0892e7fb255379a72dddd5bc08f491f}
+      \strng{authorbibnamehash}{f0892e7fb255379a72dddd5bc08f491f}
+      \strng{authornamehash}{f0892e7fb255379a72dddd5bc08f491f}
+      \strng{authorfullhash}{210e0d7bd7cb515d0d17c39771fd7c49}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Astronomy \& Astrophysics}
+      \field{month}{5}
+      \field{note}{Published online 14 May 2020}
+      \field{title}{The chemical evolution of galaxy clusters: Dissecting the iron mass budget of the intracluster medium}
+      \field{volume}{637}
+      \field{year}{2020}
+      \field{pages}{A58}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1051/0004-6361/202037506
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1051/0004-6361/202037506
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1051/0004-6361/202037506
+      \endverb
     \endentry
     \entry{Pacaud2006}{article}{}
       \name{author}{14}{}{%
