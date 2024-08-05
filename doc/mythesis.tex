@@ -61,17 +61,17 @@
 %------------------------------------------------------------------------------
 % The following definitions are used to produce the title pages
 % needed at various stages
-\newcommand{\thesistitle}{INSERT CREATIVE NAME HERE}
-\newcommand*{\thesisauthor}{Author's name}
-\newcommand*{\thesistown}{Place of birth}
+\newcommand{\thesistitle}{X-ray Morphology of the Galaxy Group NGC 1550 with eROSITA}
+\newcommand*{\thesisauthor}{Bruno da Rocha Schultz}
+\newcommand*{\thesistown}{Petrópolis}
 \renewcommand*{\InstituteName}{\AIFA}
 \renewcommand*{\inInstitute}{\inAIFA}
 \renewcommand*{\InstituteAddress}{\PIaddress}
 % Adjust \thesisreferee...text depending on male/female referee
 \newcommand*{\thesisrefereeonetext}{1.\ Gutachter}
-\newcommand*{\thesisrefereeone}{Prof.\ Dr.\ John Smith}
+\newcommand*{\thesisrefereeone}{Prof.\ Dr.\ Thomas Reiprich}
 \newcommand*{\thesisrefereetwotext}{2.\ Gutachterin}
-\newcommand*{\thesisrefereetwo}{Prof.\ Dr.\ Anne Jones}
+\newcommand*{\thesisrefereetwo}{Prof.\ \_.\ \_}
 % Date when thesis was submitted (Master/Diplom)
 % Year or Month, Year when thesis was submitted (PhD)
 \newcommand*{\thesissubmit}{XX.YY.2024}
@@ -89,10 +89,13 @@
 % The abstract is only needed for the printed version and should be in
 % English regardless of the language of the thesis
 \newcommand{\thesisabstract}{%
-  \begin{otherlanguage}{UKenglish}
-    This is your thesis abstract. It may be in a language that is
-    different from the rest of your thesis.
-  \end{otherlanguage}
+\textit{Context:} Galaxy groups like NGC 1550 play an important role in understanding the Universe's large-scale structure. They contain a significant fraction of the Universe's baryonic mass and are characterized by hot, ionized intragroup medium emitting X-rays, making X-ray observations essential for their study.
+
+\textit{Aims:} This thesis aims to characterize the X-ray morphology of the galaxy group NGC 1550 through surface brightness analysis in different directions, utilizing data from the \textit{extended ROentgen Survey with an Imaging Telescope Array} (eROSITA).
+
+\textit{Methods:} Data from eRASS:1 was corrected and reduced for instrumental and background contamination. A \(\beta\)-model was employed to fit the full azimuthal surface brightness profile, and sectoral analyses were conducted to compare the profiles across different regions of the galaxy group.
+
+\textit{Results:} NGC 1550 appears relaxed and spherically symmetrical. The \(\beta\)-model fit yielded a \(\beta\)-value of \(0.478 \pm 0.008\) and a core radius of \(r_c = 60'' \sim (15 \pm 2)\,\text{kpc}\). No significant deviations from spherical symmetry were found in the full azimuthal profile or in the sectoral analyses beyond \(390''\). Discrepancies between observational and fitted background levels were noted, suggesting the need for improved background estimation. 
 }
 
 %------------------------------------------------------------------------------
@@ -142,6 +145,10 @@
 % You can add your acknowledgements here - don't forget to also add
 % them to \includeonly above
 \include{thesis_acknowledge}
+
+%------------------------------------------------------------------------------
+\thesisabstract
+
 
 \tableofcontents
 

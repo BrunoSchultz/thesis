@@ -19,6 +19,51 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{Arnaud1996}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=740a1a04b2808d2f757e2c404ce897e9}{%
+           family={{Arnaud}},
+           familyi={A\bibinitperiod},
+           given={K.\bibnamedelimi A.},
+           giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=f3a23660b538a3cb4dbeb65152ebabf7}{%
+           family={{Jacoby}},
+           familyi={J\bibinitperiod},
+           given={George\bibnamedelima H.},
+           giveni={G\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=293ab839780599bfe39c6ca308da6535}{%
+           family={{Barnes}},
+           familyi={B\bibinitperiod},
+           given={Jeannette},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{740a1a04b2808d2f757e2c404ce897e9}
+      \strng{fullhash}{740a1a04b2808d2f757e2c404ce897e9}
+      \strng{bibnamehash}{740a1a04b2808d2f757e2c404ce897e9}
+      \strng{authorbibnamehash}{740a1a04b2808d2f757e2c404ce897e9}
+      \strng{authornamehash}{740a1a04b2808d2f757e2c404ce897e9}
+      \strng{authorfullhash}{740a1a04b2808d2f757e2c404ce897e9}
+      \strng{editorbibnamehash}{0b9f50f41d4527d3e3fde91637c77d3f}
+      \strng{editornamehash}{0b9f50f41d4527d3e3fde91637c77d3f}
+      \strng{editorfullhash}{0b9f50f41d4527d3e3fde91637c77d3f}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Astronomical Data Analysis Software and Systems V}
+      \field{month}{1}
+      \field{series}{Astronomical Society of the Pacific Conference Series}
+      \field{title}{{XSPEC: The First Ten Years}}
+      \field{volume}{101}
+      \field{year}{1996}
+      \field{pages}{17}
+      \range{pages}{1}
+    \endentry
     \entry{Bertin1996}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=8189321883304f1fd1a7e70fff780456}{%

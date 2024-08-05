@@ -682,6 +682,7 @@ class PrimCompanion(fits.PrimaryHDU):
             # Disable minor ticks on colorbar
             fig_cbar.ax.yaxis.set_minor_locator(MaxNLocator(integer=True, prune='both'))
             # fig_cbar.ax.yaxis.set_major_locator(MaxNLocator(integer=True)
+            fig_cbar.formatter.set_powerlimits((-10, 10))
 
 
         if regions:
